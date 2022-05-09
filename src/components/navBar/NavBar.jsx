@@ -1,23 +1,24 @@
 import React from "react";
+import s from './NavBar.module.css';
 
 const NavBar = () => {
     return (
-        <nav className={'nav'}>
-            <ul className={'nav__list'}>
-                <li className={'nav__list-item'}>
-                    <a href="#">Profile</a>
+        <nav className={s.nav}>
+            <ul className={s.navList}>
+                <li className={s.navListItem}>
+                    <a className={s.navListLink} href="#">Profile</a>
                 </li>
-                <li className={'nav__list-item'}>
-                    <a href="#">Messages</a>
+                <li className={s.navListItem}>
+                    <a className={`${s.navListLink} ${s.active}`} href="#">Messages</a>
                 </li>
-                <li className={'nav__list-item'}>
-                    <a href="#">News</a>
+                <li className={s.navListItem}>
+                    <a className={s.navListLink} href="#">News</a>
                 </li>
-                <li className={'nav__list-item'}>
-                    <a href="#">Music</a>
+                <li className={s.navListItem}>
+                    <a className={s.navListLink} href="#">Music</a>
                 </li>
-                <li className={'nav__list-item'}>
-                    <a href="#">Settings</a>
+                <li className={s.navListItem}>
+                    <a className={s.navListLink} href="#">Settings</a>
                 </li>
             </ul>
         </nav>

@@ -8,7 +8,6 @@ root{
     font-size: 1em;
 }
 
-
 .wrapper--main {
     max-width: 75rem;
     margin: 0 auto;
@@ -21,37 +20,6 @@ root{
           'nav content'
 }
 
-.header {
-    grid-area: header;
-    background-color: aqua;
-    display: flex;
-    padding: .4rem;
-    align-items: center;
 
-}
-
-.header__logo-img{
-    width: 2.5rem;
-    height: 2.5rem;
-}
-
-.nav {
-    grid-area: nav;
-    background-color: burlywood;
-}
-
-.content {
-    grid-area: content;
-    background-color: bisque;
-}
-
-.content__img-wrap{
-    width: 100%;
-
-}
-
-.content__img{
-    width: 100%;
-}
 
 
