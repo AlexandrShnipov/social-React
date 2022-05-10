@@ -27,3 +27,7 @@
 .navListLink:hover{
     color: brown;
 }
+
+.active{
+    color: gold;
+}
