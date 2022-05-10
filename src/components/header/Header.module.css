@@ -1,6 +1,6 @@
 .header {
     grid-area: header;
-    background-color: aqua;
+    background-color: #f1c4a6;
     display: flex;
     padding: .4rem;
     align-items: center;

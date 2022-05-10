@@ -1,6 +1,14 @@
+.post{
+    display: flex;
+}
+
 .postImg{
     max-width: 4rem;
     height: 4rem;
     object-fit: cover;
     border-radius: 50%;
+}
+
+.postLike{
+    align-self: flex-end;
 }
