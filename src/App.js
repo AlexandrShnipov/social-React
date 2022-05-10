@@ -3,13 +3,18 @@ import './Reset.css';
 import Header from "./components/header/Header";
 import NavBar from "./components/navBar/NavBar";
 import Profile from "./components/profile/Profile";
+import Dialogs from "./components/dialogs/Dialogs";
 
 const App = () => {
     return (
-        <div className={'wrapper--main'}>
+        <div className={'wrapperMain'}>
             <Header/>
             <NavBar/>
-            <Profile/>
+            <main className={'contentMain'}>
+                {/*<Profile/>*/}
+                <Dialogs />
+            </main>
+
         </div>
     );
 }
