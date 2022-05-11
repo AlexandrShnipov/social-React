@@ -4,10 +4,12 @@ import MyPost from "./MyPost/MyPost";
 
 const MyPosts = () => {
 
-    let postData = [
+    let posts = [
         {id: '1', message: 'Hi, my friends', likesCount: '11'},
         {id: 2, message: `It's my first post`, likesCount: '25'}
     ]
+
+    let postsElement = posts.map(post => <MyPost message={post.message} likesCount={post.likesCount}/>)
 
     return (
         <div className={s.contentPosts}>
@@ -17,14 +19,7 @@ const MyPosts = () => {
                 <button className={s.contentPostsPostNewButton}>add post</button>
             </article>
             <div className={s.contentPostsItems}>
-                <MyPost
-                    message={postData[0].message}
-                    likesCount={postData[0].likesCount}
-                />
-                <MyPost
-                    message={postData[1].message}
-                    likesCount={postData[1].likesCount}
-                />
+                {postsElement}
             </div>
         </div>
     )
