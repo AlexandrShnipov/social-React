@@ -1,0 +1,22 @@
+.contentImg {
+    width: 100%;
+}
+
+.contentUser {
+    display: flex;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.contentUserImgWrap {
+    max-width: 10rem;
+    width: 100%;
+    height: 10rem;
+}
+
+.contentUserImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

@@ -1,0 +1,41 @@
+.dialogs{
+    font-size: 1.5rem;
+   padding: 1rem;
+}
+
+.dialogsTitle{
+
+}
+
+.dialogsContent{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogsItems{
+
+}
+
+.dialogUser{
+
+}
+
+.dialogUserName{
+transition: color .5s;
+}
+
+.dialogUserName:hover{
+    color:brown;
+}
+
+.messages{
+
+}
+
+.message{
+
+}
+
+.active{
+    color: gold;
+}
