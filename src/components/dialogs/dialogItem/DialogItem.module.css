@@ -1,0 +1,11 @@
+.dialogUserName{
+transition: color .5s;
+}
+
+.dialogUserName:hover{
+    color:brown;
+}
+
+.active{
+    color: gold;
+}

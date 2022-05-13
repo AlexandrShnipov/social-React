@@ -1,8 +1,7 @@
-import React from "react";
+
 import s from './MyPost.module.css';
 
-const MyPost = (props) => {
-    console.log(props)
+const Post = (props) => {
     return (
         <article className={s.post}>
             <img className={s.postImg}
@@ -16,4 +15,4 @@ const MyPost = (props) => {
     )
 }
 
-export default MyPost;
+export default Post;

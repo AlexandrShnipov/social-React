@@ -16,26 +16,3 @@
 
 }
 
-.dialogUser{
-
-}
-
-.dialogUserName{
-transition: color .5s;
-}
-
-.dialogUserName:hover{
-    color:brown;
-}
-
-.messages{
-
-}
-
-.message{
-
-}
-
-.active{
-    color: gold;
-}
