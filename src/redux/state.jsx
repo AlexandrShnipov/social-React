@@ -1,19 +1,19 @@
 let state = {
     profilePage: {
         posts: [
-            {id: '1', message: 'Hi, my friends', likesCount: '11'},
-            {id: '2', message: `It's my first post`, likesCount: '25'},
+            {id: '1', message: 'Hi, my friends', likesCount: '11', photo: 'https://m.media-amazon.com/images/M/MV5BMTMxOTEwNDcxN15BMl5BanBnXkFtZTcwOTg0MTUzNA@@._V1_.jpg'},
+            {id: '2', message: `It's my first post`, likesCount: '25', photo: 'https://lwlies.com/wp-content/uploads/2017/04/avatar-2009.jpg'},
         ],
     },
     dialogsPage: {
         dialogs: [
-            {id: '1', name: 'Dima'},
-            {id: '2', name: 'Sasha'},
-            {id: '3', name: 'Dasha'},
-            {id: '4', name: 'Pasha'},
-            {id: '5', name: 'Valera'},
-            {id: '6', name: 'Sveta'},
-            {id: '7', name: 'Lena'},
+            {id: '1', name: 'Dima', photo: 'https://lwlies.com/wp-content/uploads/2017/04/avatar-2009.jpg'},
+            {id: '2', name: 'Sasha', photo: 'https://preview.redd.it/eoaqok0btkwz.jpg?auto=webp&s=2b678aa0f24b7cc95ddd9648fd0582050182a496'},
+            {id: '3', name: 'Dasha', photo: 'https://i.pinimg.com/originals/d2/b6/02/d2b602309654e552cdebaa58da93d2c9.jpg'},
+            {id: '4', name: 'Pasha', photo: 'https://www.kino-teatr.ru/video/243/start.jpg'},
+            {id: '5', name: 'Valera', photo: 'https://static0.srcdn.com/wordpress/wp-content/uploads/2021/02/Avatar-Next-Shadow-2-1.jpg'},
+            {id: '6', name: 'Sveta', photo: 'https://live.staticflickr.com/3815/10785443136_e549eceab6_b.jpg'},
+            {id: '7', name: 'Lena', photo: 'https://talleesavage.files.wordpress.com/2010/05/avatar-2.jpg'},
         ],
         messages: [
             {id: '1', message: 'Hi'},

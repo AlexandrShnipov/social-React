@@ -8,7 +8,7 @@ const MyPosts = (props) => {
 
     return (
         <div className={s.contentPosts}>
-            <h2>My Posts</h2>
+            <h2 className={s.contentPostsTitle}>My Posts</h2>
             <article className={s.contentPostsPostNew}>
                 <textarea className={s.contentPostsPostNewText} name="" id=""></textarea>
                 <button className={s.contentPostsPostNewButton}>add post</button>

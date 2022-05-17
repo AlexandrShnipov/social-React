@@ -1,5 +1,11 @@
 .post{
     display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.post+.post{
+    padding-top: 1rem;
 }
 
 .postImg{

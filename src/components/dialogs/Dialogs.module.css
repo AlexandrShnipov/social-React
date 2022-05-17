@@ -1,18 +1,19 @@
-.dialogs{
+.dialogs {
     font-size: 1.5rem;
-   padding: 1rem;
+    padding: 1rem;
 }
 
-.dialogsTitle{
-
+.dialogsTitle {
+    margin-bottom: 2rem;
+    font-size: 2rem;
 }
 
-.dialogsContent{
+.dialogsContent {
     display: grid;
     grid-template-columns: 2fr 10fr;
 }
 
-.dialogsItems{
+.dialogsItems {
 
 }
 

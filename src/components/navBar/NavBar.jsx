@@ -8,7 +8,7 @@ const NavBar = (props) => {
         <nav className={s.nav}>
             <ul className={s.navList}>
                 <li className={s.navListItem}>
-                    <NavLink className={({isActive}) => isActive ? `${s.active} ${s.navListLink}` : s.navListLink}
+                    <NavLink className={({isActive}) => isActive ? `${s.navListLink} ${s.active} ` : s.navListLink}
                              to="/profile">Profile</NavLink>
                 </li>
                 <li className={s.navListItem}>
