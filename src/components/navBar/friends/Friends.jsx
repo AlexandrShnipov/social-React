@@ -5,11 +5,11 @@ import {NavLink} from "react-router-dom";
 
 const Friends = (props) => {
 
-    let friendsElement = props.friendsNavBar.map(friend => <FriendsItem key={friend.id} {...friend}/>);
+    let friendsElement = props.friends.map(friend => <FriendsItem key={friend.id} {...friend}/>);
 
     return (
         <li className={s.navListItem}>
-            <NavLink to={'/friends'}>Friends</NavLink>
+            <NavLink className={({isActive}) => (isActive ? s.active : '')} to={'/friends'}>Friends</NavLink>
             <ul className={s.navListItemFriends}>
                 {friendsElement}
             </ul>

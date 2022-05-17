@@ -8,3 +8,7 @@
 .navListItem:last-child{
     font-size: 2rem;
 }
+
+a.active{
+    color: gold;
+}
