@@ -1,7 +1,7 @@
 
 import s from './MyPost.module.css';
 
-const Post = (props) => {
+const MyPost = (props) => {
     return (
         <article className={s.post}>
             <img className={s.postImg}
@@ -15,4 +15,4 @@ const Post = (props) => {
     )
 }
 
-export default Post;
+export default MyPost;

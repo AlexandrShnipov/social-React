@@ -1,0 +1,10 @@
+.navListItemFriends{
+    padding-top: 1rem;
+    display: flex;
+    font-size: 1rem;
+    justify-content: space-between;
+}
+
+.navListItem:last-child{
+    font-size: 2rem;
+}

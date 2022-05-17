@@ -3,34 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-let posts = [
-    {id: '1', message: 'Hi, my friends', likesCount: '11'},
-    {id: '2', message: `It's my first post`, likesCount: '25'}
-]
-
-let dialogs = [
-    {id: '1', name: 'Dima'},
-    {id: '2', name: 'Sasha'},
-    {id: '3', name: 'Dasha'},
-    {id: '4', name: 'Pasha'},
-    {id: '5', name: 'Valera'},
-    {id: '6', name: 'Sveta'},
-    {id: '7', name: 'Lena'}
-]
-
-let messages = [
-    {id: '1', message: 'Hi'},
-    {id: '2', message: 'How is your it-kamasutra?'},
-    {id: '3', message: 'Yo'},
-    {id: '4', message: 'Yo'},
-    {id: '5', message: 'Yo'}
-]
+import state from './redux/state';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App posts={posts} dialogs={dialogs} messages={messages}/>
+    <App state={state} />
   </React.StrictMode>
 );
 

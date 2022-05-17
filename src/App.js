@@ -3,7 +3,6 @@ import './Reset.css';
 import Header from "./components/header/Header";
 import NavBar from "./components/navBar/NavBar";
 import Profile from "./components/profile/Profile";
-import Message from "./components/dialogs/message/Message";
 import News from "./components/news/News";
 import Music from "./components/music/Music";
 import Setting from "./components/setting/Setting";
@@ -16,11 +15,15 @@ const App = (props) => {
         <BrowserRouter>
             <div className={'wrapperMain'}>
                 <Header/>
-                <NavBar/>
+                <NavBar state={props.state}/>
                 <main className={'contentMain'}>
                     <Routes>
-                        <Route path='/profile/*' element={<Profile posts={props.posts}/>}/>
-                        <Route path='/dialogs/*' element={<Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
+                        <Route path='/profile/*'
+                               element={<Profile state={props.state.profilePage}                              />}
+                        />
+                        <Route path='/dialogs/*'
+                               element={<Dialogs state={props.state.dialogsPage}/>}
+                        />
                         <Route path='/news/*' element={<News/>}/>
                         <Route path='/music/*' element={<Music/>}/>
                         <Route path='/setting/*' element={<Setting/>}/>
