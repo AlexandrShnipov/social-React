@@ -1,29 +1,4 @@
-.nav {
-    grid-area: nav;
-    background-color: burlywood;
-}
-
-.navList{
-    padding-top: 1rem;
-    padding-left: .5rem;
-    padding-right: .5rem;
-}
-
-.navListItem{
-    margin-bottom: 1rem;
-}
-
-.navListItem:nth-child(4){
-    margin-bottom: 3rem;
-}
-
-.navListLink{
-    color: #fff;
-    font-size: 1.5rem;
-    margin-bottom: .5rem;
-    transition: color .5s;
-}
-
-.navListLink:hover{
-    color: brown;
+h2{
+    margin-bottom: 2rem;
+    font-size: 2rem;
 }

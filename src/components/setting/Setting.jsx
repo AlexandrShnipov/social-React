@@ -3,9 +3,9 @@ import s from './Setting.module.css';
 
 const Setting = () => {
     return (
-       <div>
-           setting
-       </div>
+       <h2>
+           Setting
+       </h2>
     )
 }
 

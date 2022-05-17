@@ -3,9 +3,9 @@ import s from './News.module.css';
 
 const News = () => {
     return (
-        <div>
-            news
-        </div>
+        <h2>
+            News
+        </h2>
     )
 }
 

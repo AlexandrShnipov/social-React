@@ -3,9 +3,9 @@ import s from './Music.module.css';
 
 const Music = () => {
     return (
-       <div>
-           music
-       </div>
+       <h2>
+           Music
+       </h2>
     )
 }
 
