@@ -1,9 +1,12 @@
 import React from "react";
 import s from './Friends.module.css';
+import ContainerPage from "../../common/containerPage/ContainerPage";
 
 const Friends = () => {
     return(
-       <h2>Friends</h2>
+        <ContainerPage>
+            <h2>Friends</h2>
+        </ContainerPage>
     )
 }
 
