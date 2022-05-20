@@ -1,8 +1,10 @@
+import {renderEntireTree} from "../render";
+
 let state = {
     profilePage: {
         posts: [
-            {id: '1', message: 'Hi, my friends', likesCount: '11', photo: 'https://m.media-amazon.com/images/M/MV5BMTMxOTEwNDcxN15BMl5BanBnXkFtZTcwOTg0MTUzNA@@._V1_.jpg'},
-            {id: '2', message: `It's my first post`, likesCount: '25', photo: 'https://lwlies.com/wp-content/uploads/2017/04/avatar-2009.jpg'},
+            {id: '1', message: 'Hi, my friends', likesCount: '11',},
+            {id: '2', message: `It's my first post`, likesCount: '25',},
         ],
     },
     dialogsPage: {
@@ -38,6 +40,15 @@ let state = {
         ]
     }
 }
+
+export const addPost = (newMessage) => {
+    let newPost = {
+        id: 3, message: newMessage, likesCount: 0,
+    };
+    state.profilePage.posts.push(newPost);
+    renderEntireTree(state);
+}
+
 
 export default state;
 // console.log(state.profilePage.dialogs[1].name)

@@ -13,7 +13,7 @@ const NewMessages = () => {
     return (
         <div className={s.newMessages}>
             <textarea className={s.newMessagesText} ref={newMessageElement}></textarea>
-            <button className={s.newMessagesButton} onClick={addMessage}>Add message</button>
+            <button className={s.newMessagesButton} onClick={addMessage}>Send message</button>
         </div>
     )
 }
