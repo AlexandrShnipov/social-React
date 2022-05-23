@@ -6,10 +6,17 @@ import NewMessages from "./message/newMessages/NewMessages";
 
 const Dialogs = (props) => {
 
-    let dialogElement = props.stateDialogs.dialogs.map(dialog =>
-        <DialogItem key={dialog.id} id={dialog.id} photo={dialog.photo} name={dialog.name}/>);
-    let messageElement = props.stateDialogs.messages.map(message =>
-        <Message key={message.id} id={message.id} message={message.message}/>);
+    let dialogElement = props.stateDialogsPage.dialogs.map(dialog =>
+        <DialogItem
+            key={dialog.id}
+            id={dialog.id}
+            photo={dialog.photo}
+            name={dialog.name}/>);
+    let messageElement = props.stateDialogsPage.messages.map(message =>
+        <Message
+            key={message.id}
+            id={message.id}
+            message={message.message}/>);
 
     return (
         <div className={s.dialogs}>
@@ -22,7 +29,11 @@ const Dialogs = (props) => {
                     <div>
                         {messageElement}
                     </div>
-                    <NewMessages/>
+                    <NewMessages
+                        addMessage={props.addMessage}
+                        updateNewMessageText={props.updateNewMessageText}
+                        addMessageText={props.stateDialogsPage.addMessageText}
+                    />
                 </div>
             </div>
         </div>

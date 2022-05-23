@@ -1,4 +1,6 @@
-import {renderEntireTree} from "../render";
+let renderEntireTree =()=> {
+    console.log('state chander')
+}
 
 let state = {
     profilePage: {
@@ -6,6 +8,7 @@ let state = {
             {id: '1', message: 'Hi, my friends', likesCount: '11',},
             {id: '2', message: `It's my first post`, likesCount: '25',},
         ],
+        addPostText: 'IT-Kamasutra.com',
     },
     dialogsPage: {
         dialogs: [
@@ -23,7 +26,8 @@ let state = {
             {id: '3', message: 'Yo'},
             {id: '4', message: 'Yo'},
             {id: '5', message: 'Yo'},
-        ]
+        ],
+        addMessageText: 'Hi! I\'m new message!',
     },
     navBar: {
         friends: [
@@ -40,13 +44,46 @@ let state = {
         ]
     }
 }
+window.state = state;
 
-export const addPost = (newMessage) => {
+// export const addPost = (newMessage) => {
+//     let newPost = {
+//         id: 3, message: newMessage, likesCount: 0,
+//     };
+//     state.profilePage.posts.push(newPost);
+//     renderEntireTree(state);
+// }
+
+export const addPost = () => {
     let newPost = {
-        id: 3, message: newMessage, likesCount: 0,
+        id: 3, message: state.profilePage.addPostText, likesCount: 0,
     };
     state.profilePage.posts.push(newPost);
+    state.profilePage.addPostText = '';
     renderEntireTree(state);
+}
+
+export const updateNewPostText = (newText) => {
+    state.profilePage.addPostText = newText;
+    renderEntireTree(state);
+}
+
+export const addMessage = () => {
+    let newMessage = {
+        id: 8, message: state.dialogsPage.addMessageText,
+    };
+    state.dialogsPage.messages.push(newMessage);
+    state.dialogsPage.addMessageText = '';
+    renderEntireTree(state);
+}
+
+export const updateNewMessageText = (newText) => {
+    state.dialogsPage.addMessageText = newText;
+    renderEntireTree(state);
+}
+
+export const subscribe = (observer) => {
+    renderEntireTree = observer; // наблюдатель - паттерн
 }
 
 

@@ -2,14 +2,15 @@ import React from "react";
 import s from './Profile.module.css';
 import ProfileInfo from "./profileInfo/ProfileInfo";
 import MyPosts from "./myPosts/MyPosts";
-import ContainerPage from "../../common/containerPage/ContainerPage";
 
 const Profile = (props) => {
     return (
         <>
             <ProfileInfo/>
-            <MyPosts posts={props.stateProfile.posts}
+            <MyPosts posts={props.stateProfilePage.posts}
+                     addPostText={props.stateProfilePage.addPostText}
                      addPost={props.addPost}
+                     updateNewPostText={props.updateNewPostText}
             />
         </>
     )
