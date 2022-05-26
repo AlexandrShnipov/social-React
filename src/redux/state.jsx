@@ -48,45 +48,38 @@ let store = {
     _callSubscriber () {
         console.log('state chander')
     },
-    // export const addPost = (newMessage) => {
-//     let newPost = {
-//         id: 3, message: newMessage, likesCount: 0,
-//     };
-//     state.profilePage.posts.push(newPost);
-//     renderEntireTree(state);
-// }
-
-    addPost () {
-        //debugger;
-        let newPost = {
-            id: 3, message: this._state.profilePage.addPostText, likesCount: 0,
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.addPostText = '';
-        this._callSubscriber(this._state);
-    },
-
-    updateNewPostText (newText) {
-        this._state.profilePage.addPostText = newText;
-        this._callSubscriber(this._state);
-    },
-
-    addMessage () {
-        let newMessage = {
-            id: 8, message: this._state.dialogsPage.addMessageText,
-        };
-        this._state.dialogsPage.messages.push(newMessage);
-        this._state.dialogsPage.addMessageText = '';
-        this._callSubscriber(this._state);
-    },
-
-    updateNewMessageText (newText) {
-        this._state.dialogsPage.addMessageText = newText;
-        this._callSubscriber(this._state);
-    },
 
     subscribe(observer) {
     this._callSubscriber = observer; // наблюдатель - паттерн
+    },
+
+    dispatch (action) {
+       // debugger
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 3,
+                message: this._state.profilePage.addPostText,
+                likesCount: 0,
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.addPostText = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.addPostText = action.newText;
+            this._callSubscriber(this._state);
+
+        } else if (action.type === 'ADD-MESSAGE'){
+            let newMessage = {
+                id: 8, message: this._state.dialogsPage.addMessageText,
+            };
+            this._state.dialogsPage.messages.push(newMessage);
+            this._state.dialogsPage.addMessageText = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+            this._state.dialogsPage.addMessageText = action.newText;
+            this._callSubscriber(this._state);
+        }
+
     }
 }
 
