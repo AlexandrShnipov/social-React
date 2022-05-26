@@ -6,7 +6,7 @@ import Profile from "./components/profile/Profile";
 import News from "./components/news/News";
 import Music from "./components/music/Music";
 import Setting from "./components/setting/Setting";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import Dialogs from "./components/dialogs/Dialogs";
 import Friends from "./components/friends/Friends";
 import {updateNewMessageText, updateNewPostText} from "./redux/state";
@@ -14,7 +14,6 @@ import {updateNewMessageText, updateNewPostText} from "./redux/state";
 const App = (props) => {
 
     return (
-        <BrowserRouter>
             <div className={'wrapperMain'}>
                 <Header/>
                 <NavBar stateNavBar={props.state.navBar}/>
@@ -39,7 +38,6 @@ const App = (props) => {
                     </Routes>
                 </main>
             </div>
-        </BrowserRouter>
     );
 }
 

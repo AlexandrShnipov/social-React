@@ -29,7 +29,7 @@ let store = {
                 {id: '4', message: 'Yo'},
                 {id: '5', message: 'Yo'},
             ],
-            addMessageText: 'Hi! I\'m new message!',
+            addMessageText: '',
         },
         navBar: {
             friends: [
@@ -103,7 +103,7 @@ export const addMessageActionCreator = () => ({
     type: ADD_MESSAGE,
 })
 
-export const updateNewMessageText = (text) => ({
+export const updateNewMessageTextActionCreator = (text) => ({
     type: UPDATE_NEW_MESSAGE_TEXT,
     newText: text,
 })
