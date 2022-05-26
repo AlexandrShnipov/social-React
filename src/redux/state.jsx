@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+
 let store = {
     _state: {
         profilePage: {
@@ -55,7 +60,7 @@ let store = {
 
     dispatch (action) {
        // debugger
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 3,
                 message: this._state.profilePage.addPostText,
@@ -64,18 +69,18 @@ let store = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.addPostText = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.addPostText = action.newText;
             this._callSubscriber(this._state);
 
-        } else if (action.type === 'ADD-MESSAGE'){
+        } else if (action.type === ADD_MESSAGE){
             let newMessage = {
                 id: 8, message: this._state.dialogsPage.addMessageText,
             };
             this._state.dialogsPage.messages.push(newMessage);
             this._state.dialogsPage.addMessageText = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
             this._state.dialogsPage.addMessageText = action.newText;
             this._callSubscriber(this._state);
         }
@@ -84,5 +89,23 @@ let store = {
 }
 
 export default store;
+
+export const addPostActionCreator = () => ({
+    type: ADD_POST,
+});
+
+export const updateNewPOstTextActionCreator = (text) => ({
+    type: UPDATE_NEW_POST_TEXT,
+    newText: text,
+});
+
+export const addMessageActionCreator = () => ({
+    type: ADD_MESSAGE,
+})
+
+export const updateNewMessageText = (text) => ({
+    type: UPDATE_NEW_MESSAGE_TEXT,
+    newText: text,
+})
 // console.log(state.profilePage.dialogs[1].name)
 window.store = store;
