@@ -3,7 +3,7 @@ import s from './NewMessages.module.css'
 import {
     addMessageActionCreator,
     updateNewMessageTextActionCreator
-} from "../../../../redux/state";
+} from "../../../../redux/dialogPageReducer";
 
 const NewMessages = (props) => {
 
