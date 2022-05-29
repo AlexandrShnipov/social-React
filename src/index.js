@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import store from "./redux/store";
+import store from "./redux/reduxStore";
 import {logDOM} from "@testing-library/react";
 import {BrowserRouter} from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const rerenderEntireTree = (state) => {
-    root.render(
+       root.render(
         <React.StrictMode>
             <BrowserRouter>
                 <App state={state}
@@ -25,7 +25,10 @@ const rerenderEntireTree = (state) => {
 }
 
 rerenderEntireTree(store.getState());
-store.subscribe(rerenderEntireTree, console.log('in store something has changed'));
+store.subscribe(() => {
+    let state = store.getState();
+    rerenderEntireTree (state);
+}, console.log('in store something has changed'));
 
 
 
