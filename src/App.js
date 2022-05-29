@@ -9,7 +9,7 @@ import Setting from "./components/setting/Setting";
 import {Routes, Route} from "react-router-dom";
 import Dialogs from "./components/dialogs/Dialogs";
 import Friends from "./components/friends/Friends";
-import {updateNewMessageText, updateNewPostText} from "./redux/state";
+import {updateNewMessageText, updateNewPostText} from "./redux/store";
 
 const App = (props) => {
 
