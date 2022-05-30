@@ -3,7 +3,6 @@ import s from './NavBar.module.css';
 import Friends from "./friends/Friends";
 import NavBarItem from "./navBarItem/NavBarItem";
 import StoreContext from "../../StoreContext";
-import navBarReducer from "../../redux/navBarReducer";
 
 const NavBar = () => {
 
