@@ -26,3 +26,17 @@
 
 }
 
+.newMessages{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.newMessagesText{
+    width: 100%;
+}
+
+.newMessagesButton{
+    align-self: flex-start;
+}
+

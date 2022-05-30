@@ -7,9 +7,11 @@ import News from "./components/news/News";
 import Music from "./components/music/Music";
 import Setting from "./components/setting/Setting";
 import {Routes, Route} from "react-router-dom";
-import Dialogs from "./components/dialogs/Dialogs";
+
 import Friends from "./components/friends/Friends";
 import {updateNewMessageText, updateNewPostText} from "./redux/store";
+import Dialogs from "./components/dialogs/Dialogs";
+import DialogsContainer from "./components/dialogs/DialogsContainer";
 
 const App = (props) => {
 
@@ -25,9 +27,10 @@ const App = (props) => {
                                />}
                         />
                         <Route path='/dialogs/*'
-                               element={<Dialogs
-                                   stateDialogsPage={props.state.dialogsPage}
-                                   dispatch={props.dispatch}
+                               element={<DialogsContainer
+                                   store = {props.store}
+                                   // stateDialogsPage={props.state.dialogsPage}
+                                   // dispatch={props.dispatch}
                                />}
                         />
                         <Route path='/news/*' element={<News/>}/>
