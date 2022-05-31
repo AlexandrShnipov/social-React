@@ -10,13 +10,14 @@ import {Route, Routes} from "react-router-dom";
 
 import Friends from "./components/friends/Friends";
 import DialogsContainer from "./components/dialogs/DialogsContainer";
+import NavBarContainer from "./components/navBar/NavBarContainer";
 
 const App = (props) => {
 
     return (
         <div className={'wrapperMain'}>
             <Header/>
-            <NavBar />
+            <NavBarContainer />
             <main className={'contentMain'}>
                 <Routes>
                     <Route path='/profile/*'
