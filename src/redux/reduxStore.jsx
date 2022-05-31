@@ -1,4 +1,4 @@
-import {combineReducers, compose, createStore} from "redux";
+import {combineReducers, createStore} from "redux";
 import profilePageReducer from "./profilePageReducer";
 import dialogPageReducer from "./dialogPageReducer";
 import navBarReducer from "./navBarReducer";

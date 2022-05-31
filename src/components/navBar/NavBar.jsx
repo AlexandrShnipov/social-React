@@ -10,13 +10,13 @@ const NavBar = () => {
         <StoreContext.Consumer>
             {(store) => {
                 let state = store.getState().navBar
-                let navBarItem = state.item.map
+                let navBarItems = state.item.map
                 (item => <NavBarItem key={item.id} {...item}/>)
 
                 return (
                     <nav className={s.nav}>
                         <ul className={s.navList}>
-                            {navBarItem}
+                            {navBarItems}
                             <Friends friends={state.friends}/>
                         </ul>
                     </nav>
