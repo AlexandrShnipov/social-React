@@ -8,7 +8,7 @@ import {Provider} from "react-redux";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const rerenderEntireTree = (state) => {
+
     root.render(
         <React.StrictMode>
             <BrowserRouter>
@@ -19,14 +19,14 @@ const rerenderEntireTree = (state) => {
 
         </React.StrictMode>
     );
-}
 
-rerenderEntireTree(store.getState());
-store.subscribe(() => {
-        let state = store.getState();
-        rerenderEntireTree(state);
-    }
-    , console.log('in store something has changed'));
+
+//rerenderEntireTree();
+// store.subscribe(() => {
+//         let state = store.getState();
+//         rerenderEntireTree(state);
+//     }
+//     , console.log('in store something has changed'));
 
 
 
