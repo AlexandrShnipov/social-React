@@ -11,6 +11,8 @@ import {Route, Routes} from "react-router-dom";
 import Friends from "./components/friends/Friends";
 import DialogsContainer from "./components/dialogs/DialogsContainer";
 import NavBarContainer from "./components/navBar/NavBarContainer";
+import Users from "./components/users/Users";
+import UsersContainer from "./components/users/UsersContainer";
 
 const App = (props) => {
 
@@ -31,6 +33,7 @@ const App = (props) => {
                     />
                     <Route path='/news/*' element={<News/>}/>
                     <Route path='/music/*' element={<Music/>}/>
+                    <Route path='/users/*' element={<UsersContainer/>}/>
                     <Route path='/setting/*' element={<Setting/>}/>
                     <Route path='/friends/*' element={<Friends/>}/>
                 </Routes>

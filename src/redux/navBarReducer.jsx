@@ -9,7 +9,8 @@ let initialStore = {
         {id: '2', to: '/dialogs', linkText: 'Messages'},
         {id: '3', to: '/news', linkText: 'News'},
         {id: '4', to: '/music', linkText: 'Music'},
-        {id: '5', to: '/setting', linkText: 'Settings'},
+        {id: '5', to: '/users', linkText: 'Users'},
+        {id: '6', to: '/setting', linkText: 'Settings'},
     ]
 };
 
