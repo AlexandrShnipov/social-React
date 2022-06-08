@@ -1,5 +1,4 @@
-const FOLLOW = 'FOLLOW';
-const UNFOLLOW = 'UNFOLLOW';
+const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW';
 const STATE_USERS = 'STATE_USERS';
 
 let initialStore = {
@@ -8,31 +7,21 @@ let initialStore = {
 
 const usersReducer = (state = initialStore, action) => {
     switch (action.type) {
-        case FOLLOW:
+        case TOGGLE_FOLLOW:
             return {
                 ...state,
                 users: state.users.map(user => {
                     if(user.id === action.userID) {
-                        return{...user, followed: true}
+                        return {...user, followed: !user.followed}
                     }
                     return user;
                 })
             }
-        case UNFOLLOW:
-            return {
-                ...state,
-                users: state.users.map(user => {
-                    if(user.id === action.userID) {
-                        return{...user, followed: false}
-                    }
-                    return user;
-                })
-            }
-
+        //
         case STATE_USERS:
             return {
                 ...state,
-                users: [...state.users, ...action.users]
+                users: [...action.users]
             }
         default:
             return state;
@@ -41,15 +30,9 @@ const usersReducer = (state = initialStore, action) => {
 
 export default usersReducer;
 
-export const followAC = (userID) => ({
-    type: FOLLOW,
+export const toggleFollowAC = (userID) => ({
+    type: TOGGLE_FOLLOW,
     userID
-});
-
-export const unfollowAC = (userID) => ({
-    type: UNFOLLOW,
-    userID
-
 });
 
 export const setUsersAC = (users) => ({
