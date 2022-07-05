@@ -16,6 +16,6 @@
     margin-bottom: .5rem;
 }
 
-a.active{
+.navListLink.active{
     color: gold;
 }

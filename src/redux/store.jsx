@@ -47,7 +47,7 @@ let store = {
     },
     getState() {
         //debugger;
-        return this._state;
+        return this._state; // обращаемся к store по ООП
     },
     _callSubscriber () {
         console.log('state chander')

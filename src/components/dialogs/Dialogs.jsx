@@ -19,7 +19,7 @@ const Dialogs = (props) => {
             id={message.id}
             message={message.message}/>);
 
-    const addMessageText =  state.addMessageText;
+    const addMessageText = state.addMessageText;
 
     const onSendMessageClick = () => {
         props.addMessageClick();
@@ -32,7 +32,7 @@ const Dialogs = (props) => {
 
     return (
         <div className={s.dialogs}>
-            <h2 className={s.dialogsTitle}>Messages</h2>
+            <h2 className={s.dialogsTitle}>Dialogs</h2>
             <div className={s.dialogsContent}>
                 <div className={s.dialogsItems}>
                     {dialogElements}
@@ -41,18 +41,18 @@ const Dialogs = (props) => {
                     <div>
                         {messageElements}
                     </div>
-                    <div className={s.newMessages}>
+                </div>
+            </div>
+            <div className={s.newMessages}>
                         <textarea
                             className={s.newMessagesText}
                             placeholder={'Enter your message'}
                             onChange={onMessageChange}
                             value={addMessageText}/>
-                        <button
-                            className={s.newMessagesButton}
-                            onClick={onSendMessageClick}>Send message
-                        </button>
-                    </div>
-                </div>
+                <button
+                    className={s.newMessagesButton}
+                    onClick={onSendMessageClick}>Send message
+                </button>
             </div>
         </div>
     )

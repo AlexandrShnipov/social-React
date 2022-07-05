@@ -1,7 +1,6 @@
 .usersItem{
     display: flex;
     gap: 3rem;
-    padding-right: 8rem;
     font-size: 1.2rem;
     margin-bottom: 2rem;
 }

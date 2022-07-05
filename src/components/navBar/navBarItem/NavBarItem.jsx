@@ -6,7 +6,7 @@ const NavBarItem = (props) => {
     return (
         <li className={s.navListItem}>
             <NavLink className={({isActive}) => isActive
-                ? `${s.navListLink} ${s.active} `
+                ? `${s.navListLink} ${s.active}`
                 : s.navListLink}
                      to={props.to}>{props.linkText}</NavLink>
         </li>
