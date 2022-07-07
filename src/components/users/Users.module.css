@@ -51,6 +51,13 @@
     line-height: 1.5;
     border: none;
     outline: 2px solid burlywood;
+}
 
+.paginationWrap{
+    max-width: 50rem;
+}
+
+.selectedPage{
+    font-weight: bold;
 }
 
