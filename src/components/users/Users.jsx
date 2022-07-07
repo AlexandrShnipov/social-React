@@ -41,9 +41,10 @@ class Users extends React.Component {
                 <h2>Users</h2>
                 <div className={s.paginationWrap}>
                     {pages.map(page => {
+
                             return (
-                                <span
-                                    className={currentPage === page && s.selectedPage}
+                                <span key={page}
+                                    className={currentPage === page ? s.selectedPage : ''}
                                     onClick={(e) => {
                                         this.onPageChanged(page)
                                     }}>
