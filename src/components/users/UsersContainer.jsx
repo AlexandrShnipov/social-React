@@ -2,7 +2,6 @@ import React from "react";
 import {connect} from "react-redux";
 import {setCurrentPageAC, setTotalUsersCountAC, setUsersAC, toggleFollowAC} from "../../redux/usersReducer";
 import axios from "axios";
-import ContainerPage from "../../common/containerPage/ContainerPage";
 import Users from "./Users";
 
 class UsersContainer extends React.Component {
@@ -28,21 +27,17 @@ class UsersContainer extends React.Component {
     render = () => {
         let {currentPage, pageSize, totalUsersCount, users, toggleFollow} = this.props;
         return (
-            <ContainerPage>
-                <h2>Users</h2>
-                <Users currentPage = {currentPage}
-                       pageSize = {pageSize}
-                       totalUsersCount = {totalUsersCount}
-                       users = {users}
-                       onPageChanged = {this.onPageChanged}
-                       toggleFollow={ toggleFollow }
+            <Users currentPage={currentPage}
+                   pageSize={pageSize}
+                   totalUsersCount={totalUsersCount}
+                   users={users}
+                   onPageChanged={this.onPageChanged}
+                   toggleFollow={toggleFollow}
+            />
 
-                />
-            </ContainerPage>
         )
     }
 }
-
 
 let mapStateToProps = (state) => {
     let {users, pageSize, totalUsersCount, currentPage} = state.usersPage
@@ -71,7 +66,6 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(setTotalUsersCountAC(totalCount))
         }
     }
-
 }
 
-export default connect (mapStateToProps, mapDispatchToProps) (UsersContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);

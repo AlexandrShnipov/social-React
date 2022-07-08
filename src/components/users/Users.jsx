@@ -1,6 +1,7 @@
 import React from "react";
 import s from './Users.module.css'
 import userDefault from '../../assets/images/userDefault.png'
+import ContainerPage from "../../common/containerPage/ContainerPage";
 
 const Users = (props) => {
 
@@ -14,7 +15,8 @@ const Users = (props) => {
     }
 
     return (
-        <>
+        <ContainerPage>
+            <h2>Users</h2>
             <div className={s.paginationWrap}>
                 {pages.map(page => {
 
@@ -63,7 +65,7 @@ const Users = (props) => {
                 </div>
             )
             }
-        </>
+        </ContainerPage>
     )
 }
 
