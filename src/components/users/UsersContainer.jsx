@@ -5,7 +5,7 @@ import axios from "axios";
 import ContainerPage from "../../common/containerPage/ContainerPage";
 import Users from "./Users";
 
-class UsersApiContainer extends React.Component {
+class UsersContainer extends React.Component {
 
     componentDidMount() {
         let {currentPage, pageSize, setUsers, setTotalUsersCount} = this.props;
@@ -74,5 +74,4 @@ let mapDispatchToProps = (dispatch) => {
 
 }
 
-const UsersContainer = connect (mapStateToProps, mapDispatchToProps) (UsersApiContainer);
-export default UsersContainer;
+export default connect (mapStateToProps, mapDispatchToProps) (UsersContainer);
