@@ -1,14 +1,56 @@
 import React from "react";
 import {connect} from "react-redux";
 import {setCurrentPageAC, setTotalUsersCountAC, setUsersAC, toggleFollowAC} from "../../redux/usersReducer";
+import axios from "axios";
+import ContainerPage from "../../common/containerPage/ContainerPage";
 import Users from "./Users";
 
+class UsersApiContainer extends React.Component {
+
+    componentDidMount() {
+        let {currentPage, pageSize, setUsers, setTotalUsersCount} = this.props;
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
+            .then(response => {
+                setUsers(response.data.items);
+                setTotalUsersCount(response.data.totalCount);
+            })
+    }
+
+    onPageChanged = (pageNumber) => {
+        let {pageSize, setUsers, setCurrentPage} = this.props;
+        setCurrentPage(pageNumber);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`)
+            .then(response => {
+                setUsers(response.data.items);
+            })
+    }
+
+    render = () => {
+        let {currentPage, pageSize, totalUsersCount, users, toggleFollow} = this.props;
+        return (
+            <ContainerPage>
+                <h2>Users</h2>
+                <Users currentPage = {currentPage}
+                       pageSize = {pageSize}
+                       totalUsersCount = {totalUsersCount}
+                       users = {users}
+                       onPageChanged = {this.onPageChanged}
+                       toggleFollow={ toggleFollow }
+
+                />
+            </ContainerPage>
+        )
+    }
+}
+
+
 let mapStateToProps = (state) => {
+    let {users, pageSize, totalUsersCount, currentPage} = state.usersPage
     return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
+        users: users,
+        pageSize: pageSize,
+        totalUsersCount: totalUsersCount,
+        currentPage: currentPage,
     }
 
 };
@@ -32,5 +74,5 @@ let mapDispatchToProps = (dispatch) => {
 
 }
 
-const UsersContainer = connect (mapStateToProps, mapDispatchToProps) (Users);
+const UsersContainer = connect (mapStateToProps, mapDispatchToProps) (UsersApiContainer);
 export default UsersContainer;
