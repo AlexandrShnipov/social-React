@@ -1,7 +1,6 @@
 import './App.css';
 import './Reset.css';
 import Header from "./components/header/Header";
-import Profile from "./components/profile/Profile";
 import News from "./components/news/News";
 import Music from "./components/music/Music";
 import Setting from "./components/setting/Setting";
@@ -11,6 +10,7 @@ import Friends from "./components/friends/Friends";
 import DialogsContainer from "./components/dialogs/DialogsContainer";
 import NavBarContainer from "./components/navBar/NavBarContainer";
 import UsersContainer from "./components/users/UsersContainer";
+import ProfileContainer from "./components/profile/ProfileContainer";
 
 const App = (props) => {
 
@@ -21,7 +21,7 @@ const App = (props) => {
             <main className={'contentMain'}>
                 <Routes>
                     <Route path='/profile/*'
-                           element={<Profile/>}
+                           element={<ProfileContainer/>}
                     />
                     <Route path='/dialogs/*'
                            element={<DialogsContainer

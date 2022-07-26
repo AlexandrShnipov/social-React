@@ -1,7 +1,15 @@
 import React from "react";
 import s from './ProfileInfo.module.css';
+import Preloader from "../../Common/Preloader/Preloader";
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+
+  if (!props.profile){
+    return <Preloader/>
+  }
+
+  let {fullName, photos, lookingForAJob, lookingForAJobDescription} = props.profile
+
     return (
         <>
             <div className={s.contentImgWrap}>
@@ -12,11 +20,13 @@ const ProfileInfo = () => {
             <div className={s.contentUser}>
                 <div className={s.contentUserImgWrap}>
                     <img className={s.contentUserImg}
-                         src="https://cdn3.f-cdn.com/contestentries/1269942/15600440/5a991c82be987_thumb900.jpg"
+                         src={photos.large}
                          alt="user foto"/>
                 </div>
                 <div className={s.contentUserDescription}>
-                    user__description
+                    <p>{fullName}</p>
+                    <p>looking for a job: {lookingForAJob ? 'yes' : 'no'}</p>
+                    <p>comment: {lookingForAJobDescription}</p>
                 </div>
             </div>
         </>

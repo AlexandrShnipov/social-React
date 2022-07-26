@@ -2,6 +2,7 @@ import React from "react";
 import s from './Users.module.css'
 import userDefault from '../../assets/images/userDefault.png'
 import ContainerPage from "../../common/containerPage/ContainerPage";
+import {NavLink} from "react-router-dom";
 
 const Users = (props) => {
 
@@ -36,6 +37,7 @@ const Users = (props) => {
             {users.map(user =>
                 <div className={s.usersItem} key={user.id}>
                     <div className={s.usersItemLeft}>
+                      <NavLink to={`/profile/${user.id}`}>
                         <div className={s.usersItemLeftImg}>
                             <img src=
                                      {user.photos.small !== null
@@ -43,7 +45,7 @@ const Users = (props) => {
                                          : userDefault
                                      } alt="user photo"/>
                         </div>
-
+                      </NavLink>
                         <button className={s.usersItemLeftButton}
                                 onClick={() => {
                                     toggleFollow(user.id)
