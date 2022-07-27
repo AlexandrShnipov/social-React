@@ -1,6 +1,7 @@
 import React from "react";
 import s from './ProfileInfo.module.css';
 import Preloader from "../../Common/Preloader/Preloader";
+import userDefaultProfile from "../../../assets/images/userDefaultProfile.jpg";
 
 const ProfileInfo = (props) => {
 
@@ -20,7 +21,9 @@ const ProfileInfo = (props) => {
             <div className={s.contentUser}>
                 <div className={s.contentUserImgWrap}>
                     <img className={s.contentUserImg}
-                         src={photos.large}
+                         src={photos.large !== null
+                           ? photos.large
+                           : userDefaultProfile}
                          alt="user foto"/>
                 </div>
                 <div className={s.contentUserDescription}>
