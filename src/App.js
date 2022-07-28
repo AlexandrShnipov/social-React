@@ -1,6 +1,5 @@
 import './App.css';
 import './Reset.css';
-import Header from "./components/header/Header";
 import News from "./components/news/News";
 import Music from "./components/music/Music";
 import Setting from "./components/setting/Setting";
@@ -11,12 +10,13 @@ import DialogsContainer from "./components/dialogs/DialogsContainer";
 import NavBarContainer from "./components/navBar/NavBarContainer";
 import UsersContainer from "./components/users/UsersContainer";
 import ProfileContainer from "./components/profile/ProfileContainer";
+import HeaderContainer from "./components/header/HeaderContainer";
 
 const App = (props) => {
 
     return (
         <div className={'wrapperMain'}>
-            <Header/>
+            <HeaderContainer/>
             <NavBarContainer/>
             <main className={'contentMain'}>
                 <Routes>

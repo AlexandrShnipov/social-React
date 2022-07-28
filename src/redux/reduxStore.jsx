@@ -3,16 +3,19 @@ import profilePageReducer from "./profilePageReducer";
 import dialogPageReducer from "./dialogPageReducer";
 import navBarReducer from "./navBarReducer";
 import usersReducer from "./usersReducer";
+import authReducer from "./authReducer";
 
 
 let reducers = combineReducers({
-    profilePage: profilePageReducer,
-    dialogsPage: dialogPageReducer,
-    navBar: navBarReducer,
-    usersPage: usersReducer,
+  profilePage: profilePageReducer,
+  dialogsPage: dialogPageReducer,
+  navBar: navBarReducer,
+  usersPage: usersReducer,
+  auth: authReducer,
 });
 
 let store = createStore(reducers);
+window.store = store;
 export default store;
 
 

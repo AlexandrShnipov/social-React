@@ -10,3 +10,10 @@
 .headerLogoImg{
     width: 2.5rem;
 }
+
+.headerWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
