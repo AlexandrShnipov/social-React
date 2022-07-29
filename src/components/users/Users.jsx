@@ -48,16 +48,40 @@ const Users = (props) => {
                         </div>
                       </NavLink>
                       {user.followed
-                      ? <button className={s.usersItemLeftButton} onClick={()=> unfollow(user.id)}>Unfollow</button>
-                      : <button className={s.usersItemLeftButton} onClick={()=> follow(user.id)}>Follow</button>}
-                        {/*<button className={s.usersItemLeftButton}*/}
-                        {/*        onClick={() => {*/}
-                        {/*            toggleFollow(user.id)*/}
-                        {/*        }}>*/}
-                        {/*    {user.followed ? 'Unfollow'*/}
-                        {/*   */}
-                        {/*      : 'Follow'}*/}
-                        {/*</button>*/}
+                      ? <button
+                          className={s.usersItemLeftButton}
+                          onClick={()=>{
+                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
+                              {withCredentials: true,
+                              headers: {
+                                'API-KEY': 'edddb9f8-9da9-4002-9492-6a4e0e1684d9'
+                              }
+                              })
+                              .then(response => {
+                                //debugger
+                                if(response.data.resultCode === 0){
+                                  unfollow(user.id) ;
+                                }
+                              })
+                          }}>Unfollow
+                      </button>
+                      : <button
+                          className={s.usersItemLeftButton}
+                          onClick={()=>{
+                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
+                              {},{withCredentials: true,
+                                headers: {
+                                  'API-KEY': 'edddb9f8-9da9-4002-9492-6a4e0e1684d9'
+                                }
+                            })
+                              .then(response => {
+                                //debugger
+                                if(response.data.resultCode === 0){
+                                  follow(user.id) ;
+                                }
+                              })
+                          }}>Follow
+                      </button>}
                     </div>
 
                     <div className={s.usersItemRight}>
