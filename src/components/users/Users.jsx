@@ -3,10 +3,11 @@ import s from './Users.module.css'
 import userDefault from '../../assets/images/userDefault.png'
 import ContainerPage from "../../common/containerPage/ContainerPage";
 import {NavLink} from "react-router-dom";
+import axios from "axios";
 
 const Users = (props) => {
 
-    let {currentPage, pageSize, totalUsersCount, users, toggleFollow, onPageChanged} = props;
+    let {currentPage, pageSize, totalUsersCount, users, follow, unfollow, onPageChanged} = props;
 
     let pageCount = Math.ceil(totalUsersCount / pageSize);
     let pages = [];
@@ -46,12 +47,17 @@ const Users = (props) => {
                                      } alt="user photo"/>
                         </div>
                       </NavLink>
-                        <button className={s.usersItemLeftButton}
-                                onClick={() => {
-                                    toggleFollow(user.id)
-                                }}>
-                            {user.followed ? 'Unfollow' : 'Follow'}
-                        </button>
+                      {user.followed
+                      ? <button className={s.usersItemLeftButton} onClick={()=> unfollow(user.id)}>Unfollow</button>
+                      : <button className={s.usersItemLeftButton} onClick={()=> follow(user.id)}>Follow</button>}
+                        {/*<button className={s.usersItemLeftButton}*/}
+                        {/*        onClick={() => {*/}
+                        {/*            toggleFollow(user.id)*/}
+                        {/*        }}>*/}
+                        {/*    {user.followed ? 'Unfollow'*/}
+                        {/*   */}
+                        {/*      : 'Follow'}*/}
+                        {/*</button>*/}
                     </div>
 
                     <div className={s.usersItemRight}>

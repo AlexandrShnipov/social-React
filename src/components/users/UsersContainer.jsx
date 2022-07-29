@@ -1,11 +1,12 @@
 import React from "react";
 import {connect} from "react-redux";
 import {
-    setCurrentPage,
-    setTotalUsersCount,
-    setUsers,
-    toggleFollow,
-    toggleIsFetching
+  setCurrentPage,
+  setTotalUsersCount,
+  setUsers,
+  toggleIsFetching,
+  follow,
+  unfollow
 } from "../../redux/usersReducer";
 import axios from "axios";
 import Users from "./Users";
@@ -13,58 +14,59 @@ import Preloader from "../Common/Preloader/Preloader";
 
 class UsersContainer extends React.Component {
 
-    componentDidMount() {
-        let {currentPage, pageSize, setUsers, setTotalUsersCount, toggleIsFetching} = this.props;
-        toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
-            .then(response => {
-                toggleIsFetching(false);
-                setUsers(response.data.items);
-                setTotalUsersCount(response.data.totalCount);
-            })
-    }
+  componentDidMount() {
+    let {currentPage, pageSize, setUsers, setTotalUsersCount, toggleIsFetching} = this.props;
+    toggleIsFetching(true);
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
+      .then(response => {
+        toggleIsFetching(false);
+        setUsers(response.data.items);
+        setTotalUsersCount(response.data.totalCount);
+      })
+  }
 
-    onPageChanged = (pageNumber) => {
-        let {pageSize, setUsers, setCurrentPage, toggleIsFetching} = this.props;
-        setCurrentPage(pageNumber);
-        toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`)
-            .then(response => {
-                toggleIsFetching(false);
-                setUsers(response.data.items);
-            })
-    }
+  onPageChanged = (pageNumber) => {
+    let {pageSize, setUsers, setCurrentPage, toggleIsFetching} = this.props;
+    setCurrentPage(pageNumber);
+    toggleIsFetching(true);
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`)
+      .then(response => {
+        toggleIsFetching(false);
+        setUsers(response.data.items);
+      })
+  }
 
-    render = () => {
-        let {currentPage, pageSize, totalUsersCount, users, toggleFollow, isFetching} = this.props;
-        return (
-            <>
-                {isFetching
-                    ? <Preloader />
-                    : null}
-                <Users currentPage={currentPage}
-                       pageSize={pageSize}
-                       totalUsersCount={totalUsersCount}
-                       users={users}
-                       onPageChanged={this.onPageChanged}
-                       toggleFollow={toggleFollow}
-                />
-            </>
+  render = () => {
+    let {currentPage, pageSize, totalUsersCount, users, follow, unfollow, isFetching} = this.props;
+    return (
+      <>
+        {isFetching
+          ? <Preloader/>
+          : null}
+        <Users currentPage={currentPage}
+               pageSize={pageSize}
+               totalUsersCount={totalUsersCount}
+               users={users}
+               onPageChanged={this.onPageChanged}
+               follow={follow}
+               unfollow={unfollow}
+        />
+      </>
 
 
-        )
-    }
+    )
+  }
 }
 
 let mapStateToProps = (state) => {
-    let {users, pageSize, totalUsersCount, currentPage, isFetching} = state.usersPage
-    return {
-        users: users,
-        pageSize: pageSize,
-        totalUsersCount: totalUsersCount,
-        currentPage: currentPage,
-        isFetching: isFetching,
-    }
+  let {users, pageSize, totalUsersCount, currentPage, isFetching} = state.usersPage
+  return {
+    users: users,
+    pageSize: pageSize,
+    totalUsersCount: totalUsersCount,
+    currentPage: currentPage,
+    isFetching: isFetching,
+  }
 
 };
 
@@ -90,7 +92,9 @@ let mapStateToProps = (state) => {
 // }
 
 export default connect(mapStateToProps,
-  {toggleFollow, setUsers,
+  {
+    follow, unfollow, setUsers,
     setCurrentPage, setTotalUsersCount,
-    toggleIsFetching})
+    toggleIsFetching
+  })
 (UsersContainer);
