@@ -3,7 +3,7 @@ import s from './Users.module.css'
 import userDefault from '../../assets/images/userDefault.png'
 import ContainerPage from "../../common/containerPage/ContainerPage";
 import {NavLink} from "react-router-dom";
-import axios from "axios";
+import {followAPI, unfollowAPI} from "../../api/api";
 
 const Users = (props) => {
 
@@ -51,15 +51,10 @@ const Users = (props) => {
                       ? <button
                           className={s.usersItemLeftButton}
                           onClick={()=>{
-                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
-                              {withCredentials: true,
-                              headers: {
-                                'API-KEY': 'edddb9f8-9da9-4002-9492-6a4e0e1684d9'
-                              }
-                              })
-                              .then(response => {
+                            unfollowAPI.unfollow(user.id)
+                              .then(data => {
                                 //debugger
-                                if(response.data.resultCode === 0){
+                                if(data.resultCode === 0){
                                   unfollow(user.id) ;
                                 }
                               })
@@ -68,15 +63,10 @@ const Users = (props) => {
                       : <button
                           className={s.usersItemLeftButton}
                           onClick={()=>{
-                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
-                              {},{withCredentials: true,
-                                headers: {
-                                  'API-KEY': 'edddb9f8-9da9-4002-9492-6a4e0e1684d9'
-                                }
-                            })
-                              .then(response => {
+                           followAPI.follow(user.id)
+                              .then(data => {
                                 //debugger
-                                if(response.data.resultCode === 0){
+                                if(data.resultCode === 0){
                                   follow(user.id) ;
                                 }
                               })

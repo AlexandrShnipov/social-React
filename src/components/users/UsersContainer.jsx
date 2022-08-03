@@ -11,18 +11,18 @@ import {
 import axios from "axios";
 import Users from "./Users";
 import Preloader from "../Common/Preloader/Preloader";
+import {usersAPI} from "../../api/api";
 
 class UsersContainer extends React.Component {
 
   componentDidMount() {
     let {currentPage, pageSize, setUsers, setTotalUsersCount, toggleIsFetching} = this.props;
     toggleIsFetching(true);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`,
-      {withCredentials: true})
-      .then(response => {
+    usersAPI.getUsers(currentPage, pageSize)
+      .then(data => {
         toggleIsFetching(false);
-        setUsers(response.data.items);
-        setTotalUsersCount(response.data.totalCount);
+        setUsers(data.items);
+        setTotalUsersCount(data.totalCount);
       })
   }
 
@@ -30,11 +30,10 @@ class UsersContainer extends React.Component {
     let {pageSize, setUsers, setCurrentPage, toggleIsFetching} = this.props;
     setCurrentPage(pageNumber);
     toggleIsFetching(true);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`,
-      {withCredentials: true})
-      .then(response => {
+    usersAPI.getUsers(pageNumber, pageSize)
+      .then(data => {
         toggleIsFetching(false);
-        setUsers(response.data.items);
+        setUsers(data.items);
       })
   }
 
