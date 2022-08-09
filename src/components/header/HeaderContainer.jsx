@@ -2,12 +2,12 @@ import React from "react";
 import Header from "./Header";
 import axios from "axios";
 import {connect} from "react-redux";
-import {setAuthUserData, setUserData} from "../../redux/authReducer";
-import {loginAPI} from "../../api/api";
+import {setAuthUserData} from "../../redux/authReducer";
+import {authAPI} from "../../api/api";
 class HeaderContainer extends React.Component {
 
   componentDidMount() {
-    loginAPI.getLogin()
+    authAPI.getMe()
       .then(data => {
      //debugger
         if(data.resultCode === 0){
