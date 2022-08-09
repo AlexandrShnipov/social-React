@@ -4,7 +4,7 @@ import axios from "axios";
 import {connect} from "react-redux";
 import {setUserProfile} from "../../redux/profilePageReducer";
 import {useLocation, useNavigate, useParams} from "react-router-dom";
-import {profileAPI} from "../../api/api";
+import {usersAPI} from "../../api/api";
 
 
 class ProfileContainer extends React.Component {
@@ -17,11 +17,9 @@ class ProfileContainer extends React.Component {
       userId = 2;
     }
 
-    profileAPI.getProfile(userId)
+    usersAPI.getProfile(userId)
       .then(data => {
-
         this.props.setUserProfile(data);
-
       })
   }
 
