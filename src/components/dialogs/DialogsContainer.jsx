@@ -5,12 +5,13 @@ import dialogPageReducer, {
 } from "../../redux/dialogPageReducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
+import {Navigate} from "react-router-dom";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 
 const mapStateToProps = (state) => {
   return {
     dialogsPage: state.dialogsPage,
-    isAuth: state.auth.isAuth
   }
 }
 
@@ -21,9 +22,8 @@ const mapStateToProps = (state) => {
 //     }
 // }
 
-const DialogsContainer = connect(mapStateToProps,
-  {addMessageClick, updateNewMessageText})(Dialogs);
+export default withAuthRedirect(connect(mapStateToProps,
+  {addMessageClick, updateNewMessageText})(Dialogs));
 
-export default DialogsContainer;
 
 
