@@ -11,6 +11,7 @@ import NavBarContainer from "./components/navBar/NavBarContainer";
 import UsersContainer from "./components/users/UsersContainer";
 import ProfileContainer from "./components/profile/ProfileContainer";
 import HeaderContainer from "./components/header/HeaderContainer";
+import Login from "./components/login/Login";
 
 const App = (props) => {
 
@@ -35,6 +36,7 @@ const App = (props) => {
                     <Route path='/users/*' element={<UsersContainer/>}/>
                     <Route path='/setting/*' element={<Setting/>}/>
                     <Route path='/friends/*' element={<Friends/>}/>
+                    <Route path='/login/*' element={<Login/>}/>
                 </Routes>
             </main>
         </div>

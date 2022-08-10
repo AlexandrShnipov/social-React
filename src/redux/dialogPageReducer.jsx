@@ -20,7 +20,7 @@ let initialStore = {
         {
             id: '4',
             name: 'Pasha',
-            photo: 'https://www.kino-teatr.ru/video/243/start.jpg'
+            photo: 'https://akm-img-a-in.tosshub.com/indiatoday/images/story/201907/imgonline-com-ua-FrameBlurred-_14.jpeg?m6aZMJ2FuRNdIJhw9MbIpcGgJvY3yzW6&size=770:433/'
         },
         {
             id: '5',
