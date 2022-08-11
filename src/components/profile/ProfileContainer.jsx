@@ -1,7 +1,7 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {Navigate, useLocation, useNavigate, useParams} from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 import {getUserProfile} from "../../redux/profilePageReducer";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
@@ -50,5 +50,5 @@ function withRouter(Component) {
 export default compose (
   connect(mapStateToProps, {getUserProfile}),
   withRouter,
-  withAuthRedirect
+ // withAuthRedirect
 ) (ProfileContainer)

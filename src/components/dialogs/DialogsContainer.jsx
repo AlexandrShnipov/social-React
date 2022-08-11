@@ -5,7 +5,6 @@ import dialogPageReducer, {
 } from "../../redux/dialogPageReducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
-import {Navigate} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
