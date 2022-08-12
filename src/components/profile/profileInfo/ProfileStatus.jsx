@@ -1,27 +1,30 @@
 import React from "react";
-import s from './ProfileInfo.module.css';
-import Preloader from "../../Common/Preloader/Preloader";
+import {updateStatus} from "../../../redux/profilePageReducer";
 
 class ProfileStatus extends React.Component {
 
   state = {
-    editMode: false
+    editMode: false,
+    status: this.props.status
   }
 
   activateEditMode = () => {
     this.setState({
-      editMode:true
+      editMode: true
     });
-    //this.state.editMode = true;
-    //this.forceUpdate();
   }
 
   deactivateEditMode = () => {
     this.setState({
-      editMode:false
+      editMode: false
     });
-    //this.state.editMode = false;
-    //this.forceUpdate();
+    this.props.updateStatus(this.state.status);
+  }
+
+  onStatusChange = (e) => {
+    this.setState({
+      status: e.currentTarget.value
+    })
   }
 
   render() {
@@ -29,13 +32,16 @@ class ProfileStatus extends React.Component {
       <>
         {!this.state.editMode &&
         <div>
-          <span onDoubleClick={this.activateEditMode}>{this.props.status}</span>
+          <span onDoubleClick={this.activateEditMode}>{this.props.status || 'No status'} </span>
         </div>
         }
         {this.state.editMode &&
         <div>
-          <input autoFocus={true} onBlur={this.deactivateEditMode} value={this.props.status}/>
-        </div>
+          <input onChange={this.onStatusChange}
+                 autoFocus={true}
+                 onBlur={this.deactivateEditMode}
+                 value={this.state.status}/>
+               </div>
         }
       </>
     )

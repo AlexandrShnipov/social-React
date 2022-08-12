@@ -3,6 +3,7 @@ import s from './ProfileInfo.module.css';
 import Preloader from "../../Common/Preloader/Preloader";
 import userDefaultProfile from "../../../assets/images/userDefaultProfile.jpg";
 import ProfileStatus from "./ProfileStatus";
+import {updateStatus} from "../../../redux/profilePageReducer";
 
 const ProfileInfo = (props) => {
 
@@ -26,7 +27,7 @@ const ProfileInfo = (props) => {
                  ? photos.large
                  : userDefaultProfile}
                alt="user foto"/>
-          <ProfileStatus status={'Hello!!'}/>
+          <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
         </div>
         <div className={s.contentUserDescription}>
           <p>{fullName}</p>
