@@ -1,7 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
 import {
-  unfollowSuccess,
   getUsers,
   toggleFollowingProgress, unfollow, follow, setCurrentPage,
 } from "../../redux/usersReducer";
@@ -69,5 +68,5 @@ export default compose(
       follow, unfollow, setCurrentPage,
       toggleFollowingProgress, getUsers
     }),
-  withAuthRedirect
+  //withAuthRedirect
 )(UsersContainer)

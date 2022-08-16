@@ -26,6 +26,11 @@ const LoginForm = (props) => {
         validate={[required]}
       />
       <label><Field component={'input'} name={'rememberMe'} type="checkbox"/>remember me</label>
+      {
+        props.error && <div className={s.formSummaryError}>
+          {props.error}
+        </div>
+      }
       <button>login</button>
     </form>
   )
@@ -44,7 +49,7 @@ const Login = (props) => {
 
   if (props.isAuth) {
     return (
-      <Navigate replace to={'/profile'}/>
+      <Navigate to={'/profile'}/>
     )
   }
 
