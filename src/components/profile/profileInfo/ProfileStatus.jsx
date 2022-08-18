@@ -1,5 +1,5 @@
 import React from "react";
-import {updateStatus} from "../../../redux/profilePageReducer";
+
 
 class ProfileStatus extends React.Component {
 
