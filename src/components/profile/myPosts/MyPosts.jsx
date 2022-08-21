@@ -4,10 +4,10 @@ import MyPost from "./MyPost/MyPost";
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, required, requiredField} from "../../../utils/validators/validators";
 import {Textarea} from "../../Common/FormsControls/FormsControls";
+import {login} from "../../../redux/authReducer";
 
 const MyPosts = (props) => {
-
-  let postsElements = props.posts.map(post => <MyPost key={post.id} {...post}/>)
+   let postsElements = props.posts.map(post => <MyPost key={post.id} {...post}/>)
 
   const onAddPost = (value) => {
     //debugger

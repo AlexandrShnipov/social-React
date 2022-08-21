@@ -3,8 +3,9 @@ import {profileAPI, usersAPI} from "../api/api";
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
+const DELETE_POST = 'DELETE_POST';
 
-let initialStore = {
+let initialState = {
   posts: [
     {id: '1', message: 'Hi, my friends', likesCount: '11',},
     {id: '2', message: `It's my first post`, likesCount: '25',},
@@ -13,7 +14,7 @@ let initialStore = {
   status: '',
 }
 
-const profilePageReducer = (state = initialStore, action) => {
+const profilePageReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
       let newPost = {
@@ -27,16 +28,23 @@ const profilePageReducer = (state = initialStore, action) => {
         posts: [...state.posts, newPost]
       };
 
-      case SET_STATUS:
+    case SET_USER_PROFILE:
+      return {
+        ...state,
+        profile: action.profile
+      }
+
+    case SET_STATUS:
       return {
         ...state,
         status: action.status
       };
 
-    case SET_USER_PROFILE:
+    case DELETE_POST:
+
       return {
         ...state,
-        profile: action.profile
+        posts: state.posts.filter(post => post.id !== action.postId)
       }
 
     default:
@@ -76,8 +84,13 @@ export const getStatus = (userId) => (dispatch) => {
 export const updateStatus = (status) => (dispatch) => {
   profileAPI.updateStatus(status)
     .then(data => {
-      if(data.resultCode === 0) {
+      if (data.resultCode === 0) {
         dispatch(setStatus(status));
       }
     })
 }
+
+export const deletePost = (postId) => ({
+  type: DELETE_POST,
+  postId
+});
