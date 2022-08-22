@@ -28,39 +28,33 @@ export const setAuthUserData = (userId, login, email, isAuth) => ({
   payload: {userId, login, email, isAuth}
 });
 
-export const getAuthUserdata = () => (dispatch) => {
-  return authAPI.getMe()
-    .then(data => {
+export const getAuthUserdata = () => async (dispatch) => {
+  let data = await authAPI.getMe()
       //debugger
       if(data.resultCode === 0){
         let {id, login, email} = data.data;
         dispatch(setAuthUserData(id, login, email, true));
       }
-    })
 }
 
-export const login = (email, password, rememberMe) => (dispatch) => {
+export const login = (email, password, rememberMe) => async (dispatch) => {
 
-  authAPI.login(email, password, rememberMe)
-    .then(data => {
-      //debugger
+ let data = await authAPI.login(email, password, rememberMe)
+        //debugger
       if(data.resultCode === 0){
         dispatch(getAuthUserdata());
       } else {
         let message = data.messages.length > 0 ? data.messages[0] : 'Some error';
         dispatch(stopSubmit('login', {_error: message}))
       }
-    })
-}
+  }
 
-export const logout = () => (dispatch) => {
-  authAPI.logout()
-    .then(data => {
-      //debugger
+export const logout = () => async (dispatch) => {
+  let data = await authAPI.logout()
+       //debugger
       if(data.resultCode === 0){
         dispatch(setAuthUserData(null, null, null, false));
       }
-    })
 }
 
 export default authReducer;
