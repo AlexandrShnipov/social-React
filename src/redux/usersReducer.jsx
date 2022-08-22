@@ -28,12 +28,6 @@ const usersReducer = (state = initialStore, action) => {
           action.userID,
           'id',
           {followed: true})
-        //   state.users.map(user => {
-        //   if (user.id === action.userID) {
-        //     return {...user, followed: true}
-        //   }
-        //   return user;
-        // })
       }
     case UNFOLLOW:
       return {

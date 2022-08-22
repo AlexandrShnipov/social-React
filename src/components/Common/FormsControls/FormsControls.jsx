@@ -4,13 +4,13 @@ import {required} from "../../../utils/validators/validators";
 import React from "react";
 
 
-const FormControl = ({input, meta, child, ...props}) => {
-  const hasError = meta.touched && meta.error
+const FormControl = ({input, meta:{touched,error}, children}) => {
+  const hasError = touched && error
 
   return (
     <div className={`${s.formControl} ${hasError ? s.error : ''}`}>
-      {props.children}
-      {hasError && <span>{meta.error}</span>}
+      {children}
+      {hasError && <span>{error}</span>}
     </div>
   )
 }
