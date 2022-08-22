@@ -29,7 +29,7 @@ export const setAuthUserData = (userId, login, email, isAuth) => ({
 });
 
 export const getAuthUserdata = () => async (dispatch) => {
-  let data = await authAPI.getMe()
+  const data = await authAPI.getMe()
       //debugger
       if(data.resultCode === 0){
         let {id, login, email} = data.data;
@@ -38,8 +38,7 @@ export const getAuthUserdata = () => async (dispatch) => {
 }
 
 export const login = (email, password, rememberMe) => async (dispatch) => {
-
- let data = await authAPI.login(email, password, rememberMe)
+ const data = await authAPI.login(email, password, rememberMe)
         //debugger
       if(data.resultCode === 0){
         dispatch(getAuthUserdata());
@@ -50,7 +49,7 @@ export const login = (email, password, rememberMe) => async (dispatch) => {
   }
 
 export const logout = () => async (dispatch) => {
-  let data = await authAPI.logout()
+  const data = await authAPI.logout()
        //debugger
       if(data.resultCode === 0){
         dispatch(setAuthUserData(null, null, null, false));
