@@ -3,38 +3,17 @@ import s from './Users.module.css'
 import userDefault from '../../assets/images/userDefault.png'
 import ContainerPage from "../../common/containerPage/ContainerPage";
 import {NavLink} from "react-router-dom";
-import {usersAPI} from "../../api/api";
-import {followSuccess, unfollowSuccess} from "../../redux/usersReducer";
+import Paginator from "../Common/Paginator/Paginator";
 
 const Users = (props) => {
 
-  let {currentPage, pageSize, totalUsersCount, users, follow, unfollow, onPageChanged} = props;
-
-  let pageCount = Math.ceil(totalUsersCount / pageSize);
-  let pages = [];
-
-  for (let i = 1; i <= pageCount; i++) {
-    pages.push(i)
-  }
+  let {currentPage, pageSize, totalUsersCount, users, onPageChanged} = props;
 
   return (
     <ContainerPage>
       <h2>Users</h2>
-      <div className={s.paginationWrap}>
-        {pages.map(page => {
-            return (
-              <span key={page}
-                    className={currentPage === page ? s.selectedPage : ''}
-                    onClick={(e) => {
-                      onPageChanged(page)
-                    }}>
-                            {page}
-                        </span>
-            )
-          }
-        )
-        }
-      </div>
+      <Paginator currentPage={currentPage} pageSize={pageSize} totalUsersCount={totalUsersCount}
+                 onPageChanged={onPageChanged}/>
       {users.map(user =>
         <div className={s.usersItem} key={user.id}>
           <div className={s.usersItemLeft}>
@@ -51,13 +30,17 @@ const Users = (props) => {
               ? <button
                 className={s.usersItemLeftButton}
                 disabled={props.followingInProgress.some(id => id === user.id)}
-                onClick={() => {props.unfollow(user.id)}}>
+                onClick={() => {
+                  props.unfollow(user.id)
+                }}>
                 Unfollow
               </button>
               : <button
                 disabled={props.followingInProgress.some(id => id === user.id)}
                 className={s.usersItemLeftButton}
-                onClick={() => {props.follow(user.id)}}>
+                onClick={() => {
+                  props.follow(user.id)
+                }}>
                 Follow
               </button>}
           </div>

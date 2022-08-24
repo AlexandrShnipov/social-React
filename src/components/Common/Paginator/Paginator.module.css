@@ -1,0 +1,8 @@
+
+.paginationWrap{
+    max-width: 50rem;
+}
+
+.selectedPage{
+    font-weight: bold;
+}
