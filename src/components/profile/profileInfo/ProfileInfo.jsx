@@ -2,8 +2,6 @@ import React from "react";
 import s from './ProfileInfo.module.css';
 import Preloader from "../../Common/Preloader/Preloader";
 import userDefaultProfile from "../../../assets/images/userDefaultProfile.jpg";
-import ProfileStatus from "./ProfileStatus";
-import {updateStatus} from "../../../redux/profilePageReducer";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
