@@ -12,7 +12,7 @@ const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 let initialStore = {
   users: [],
   pageSize: 10,
-  totalUsersCount: 0,
+  totalItemsCount: 0,
   currentPage: 1,
   isFetching: false,
   followingInProgress: [],
@@ -51,7 +51,7 @@ const usersReducer = (state = initialStore, action) => {
     case SET_TOTAL_USERS_COUNT:
       return {
         ...state,
-        totalUsersCount: action.totalUsersCount
+        totalItemsCount: action.totalItemsCount
       }
     case TOGGLE_IS_FETCHING:
       return {
@@ -91,9 +91,9 @@ export const setCurrentPage = (currentPage) => ({
   currentPage
 });
 
-export const setTotalUsersCount = (totalUsersCount) => ({
+export const setTotalItemsCount = (totalItemsCount) => ({
   type: SET_TOTAL_USERS_COUNT,
-  totalUsersCount
+  totalItemsCount
 });
 
 export const toggleIsFetching = (isFetching) => ({
@@ -112,7 +112,7 @@ export const requestUsers = (page, pageSize) => {
     const data = await usersAPI.getUsers(page, pageSize)
     dispatch(toggleIsFetching(false));
     dispatch(setUsers(data.items));
-    dispatch(setTotalUsersCount(data.totalCount));
+    dispatch(setTotalItemsCount(data.totalCount));
     dispatch(setCurrentPage(page))
   }
 }

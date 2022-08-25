@@ -1,19 +1,19 @@
 import React from "react";
 import ContainerPage from "../../common/containerPage/ContainerPage";
-import Paginator from "../Common/Paginator/Paginator";
+import Pagination from "../Common/Pagination/Pagination";
 import User from "./User";
 
 const Users = (props) => {
 
-  let {currentPage, pageSize, totalUsersCount, users, onPageChanged, followingInProgress, follow, unfollow} = props;
+  let {currentPage, pageSize, totalItemsCount, users, onPageChanged, followingInProgress, follow, unfollow} = props;
 
   return (
     <ContainerPage>
       <h2>Users</h2>
-      <Paginator currentPage={currentPage}
-                 pageSize={pageSize}
-                 totalUsersCount={totalUsersCount}
-                 onPageChanged={onPageChanged}/>
+      <Pagination currentPage={currentPage}
+                  pageSize={pageSize}
+                  totalItemsCount={totalItemsCount}
+                  onPageChanged={onPageChanged}/>
       {users.map(user => <User user={user}
                                key={user.id}
                                followingInProgress={followingInProgress}

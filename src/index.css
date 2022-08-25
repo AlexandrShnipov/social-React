@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
-root{
+:root{
   font-size: 1em;
+}
+
+button,
+input{
+    cursor: pointer;
 }
