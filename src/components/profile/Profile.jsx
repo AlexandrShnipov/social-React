@@ -7,14 +7,17 @@ import {updateStatus} from "../../redux/profilePageReducer";
 const Profile = (props) => {
 
   return (
-        <>
-            <ProfileInfo profile={props.profile}
-                         status={props.status}
-                         updateStatus={props.updateStatus}/>
-            <MyPostsContainer />
+    <>
+      <ProfileInfo profile={props.profile}
+                   status={props.status}
+                   updateStatus={props.updateStatus}
+                   isOwner={props.isOwner}
+                   savePhoto={props.savePhoto}
+      />
+      <MyPostsContainer/>
 
-        </>
-    )
+    </>
+  )
 }
 
 export default Profile;
