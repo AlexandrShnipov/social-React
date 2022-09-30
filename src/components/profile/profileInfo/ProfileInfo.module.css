@@ -13,6 +13,7 @@
     max-width: 10rem;
     width: 100%;
     height: 10rem;
+    position: relative;
 }
 
 .contentUserImg {
@@ -20,3 +21,31 @@
     height: 100%;
     object-fit: cover;
 }
+
+input[type=file] {
+    width: 1px;
+    height: 1px;
+    font-size: 1px;
+}
+
+label {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    opacity: .5;
+    transition: all .5s linear;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    background: white;
+}
+
+label:hover {
+    opacity: .9;
+}
+

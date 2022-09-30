@@ -32,7 +32,12 @@ const ProfileInfo = (props) => {
                  ? photos.large
                  : userDefaultPhoto}
                alt="user photo"/>
-          {props.isOwner && <input type={'file'} onChange={onMainPhotoSelected}/>}
+          {props.isOwner &&
+            <label>
+              &#128247;
+              <input type={'file'} onChange={onMainPhotoSelected}/>
+            </label>
+          }
           <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
         </div>
         <div className={s.contentUserDescription}>
