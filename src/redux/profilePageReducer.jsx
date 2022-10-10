@@ -110,7 +110,6 @@ export const savePhoto = (file) => async (dispatch) => {
 
 export const saveProfile = (profile) => async (dispatch) => {
   const data = await profileAPI.saveProfile(profile)
-  debugger
   if (data.resultCode === 0) {
     //dispatch(savePhotoSuccess(data.data.photos));
   }

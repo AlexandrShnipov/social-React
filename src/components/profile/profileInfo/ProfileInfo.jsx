@@ -48,7 +48,7 @@ const ProfileInfo = (props) => {
                     <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
                 </div>
                 {editMode
-                    ? <ProfileDataForm profile={props.profile} onSubmit={onSubmit}/>
+                    ? <ProfileDataForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit}/>
                     : <ProfileData
                         profile={props.profile}
                         isOwner={props.isOwner}
