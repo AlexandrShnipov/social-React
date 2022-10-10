@@ -1,53 +1,91 @@
-import React from "react";
+import React, {useState} from "react";
 import s from './ProfileInfo.module.css';
 import Preloader from "../../Common/Preloader/Preloader";
 import userDefaultPhoto from "../../../assets/images/userDefaultPhoto.jpg";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import ProfileDataForm from "./profileDataForm/ProfileDataForm";
 
 const ProfileInfo = (props) => {
 
-  if (!props.profile) {
-    return <Preloader/>
-  }
-
-  const onMainPhotoSelected = (e) => {
-    if(e.target.files.length) {
-      props.savePhoto(e.target.files[0])
+    let [editMode, setEditMode] = useState(false);
+    if (!props.profile) {
+        return <Preloader/>
     }
-  }
 
-  let {fullName, photos, lookingForAJob, lookingForAJobDescription} = props.profile
+    const onMainPhotoSelected = (e) => {
+        if (e.target.files.length) {
+            props.savePhoto(e.target.files[0])
+        }
+    }
 
-  return (
-    <>
-      <div className={s.contentImgWrap}>
-        <img className={s.contentImg}
-             src="https://cdn.vitecimagingsolutions.com/fileadmin/Gitzo/Global/Contents/Nature___Wildlife/marquee.jpg"
-             alt="img"/>
-      </div>
-      <div className={s.contentUser}>
-        <div className={s.contentUserImgWrap}>
-          <img className={s.contentUserImg}
-               src={photos.large !== null
-                 ? photos.large
-                 : userDefaultPhoto}
-               alt="user photo"/>
-          {props.isOwner &&
-            <label>
-              &#128247;
-              <input type={'file'} onChange={onMainPhotoSelected}/>
-            </label>
-          }
-          <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
-        </div>
-        <div className={s.contentUserDescription}>
-          <p>{fullName}</p>
-          <p>looking for a job: {lookingForAJob ? 'yes' : 'no'}</p>
-          <p>comment: {lookingForAJobDescription}</p>
-        </div>
-      </div>
-    </>
-  )
+    let {photos} = props.profile
+
+    const onSubmit = (formData) => {
+        console.log(formData)
+        props.saveProfile(formData)
+    }
+
+    return (
+        <>
+            <div className={s.contentImgWrap}>
+                <img className={s.contentImg}
+                     src="https://cdn.vitecimagingsolutions.com/fileadmin/Gitzo/Global/Contents/Nature___Wildlife/marquee.jpg"
+                     alt="img"/>
+            </div>
+            <div className={s.contentUser}>
+                <div className={s.contentUserImgWrap}>
+                    <img className={s.contentUserImg}
+                         src={photos.large !== null
+                             ? photos.large
+                             : userDefaultPhoto}
+                         alt="user photo"/>
+                    {props.isOwner &&
+                        <label>
+                            &#128247;
+                            <input type={'file'} onChange={onMainPhotoSelected}/>
+                        </label>
+                    }
+                    <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+                </div>
+                {editMode
+                    ? <ProfileDataForm profile={props.profile} onSubmit={onSubmit}/>
+                    : <ProfileData
+                        profile={props.profile}
+                        isOwner={props.isOwner}
+                        goToEditMode={()=>{setEditMode(true)}}/>
+                    }
+            </div>
+        </>
+    )
 }
 
 export default ProfileInfo;
+
+const ProfileData = (props) => {
+    let {fullName, lookingForAJob, lookingForAJobDescription, aboutMe, contacts} = props.profile
+    return (
+        <div className={s.contentUserDescription}>
+            {props.isOwner && <button onClick={props.goToEditMode}>Edit</button>}
+            <p><strong>Full name: </strong>{fullName}</p>
+            <p><strong>Looking for a job:</strong> {lookingForAJob ? 'yes' : 'no'}</p>
+            {lookingForAJob &&
+                <p><strong>My professional skills:</strong>{lookingForAJobDescription}</p>
+            }
+            <p><strong>About me:</strong>{aboutMe}</p>
+            <div>
+                <p><strong>Contacts:</strong>{Object.keys(contacts).map(key => {
+                    return (
+                        <Contact contactTitle={key} contactValue={contacts[key]}/>
+                    )
+                })}</p>
+            </div>
+        </div>
+    )
+}
+
+export const Contact = ({contactTitle, contactValue}) => {
+    return (
+        <p>{contactTitle}:{contactValue}</p>
+    )
+}
+//export default Contact;

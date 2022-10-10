@@ -33,7 +33,7 @@ export const Input = (props) => {
   )
 }
 
-export const createField = (component, name, type, placeholder, validates, text='') => {
+export const createField = (component, name, type, placeholder, validates, text='', props={}) => {
   return (
     <>
       <Field

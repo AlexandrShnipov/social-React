@@ -1,0 +1,50 @@
+import React from "react";
+import {Field, reduxForm} from "redux-form";
+import s from "../ProfileInfo.module.css";
+import {Contact} from "../ProfileInfo";
+import {createField, Input, Textarea} from "../../../Common/FormsControls/FormsControls";
+
+const ProfileDataForm = (props) => {
+    let {contacts} = props.profile
+
+    const submitProfileDataForm = (e) => {
+        e.preventDefault();
+        props.handleSubmit();
+    }
+
+    return (
+        <form
+            className={s.contentUserDescription}
+            onSubmit={submitProfileDataForm}
+        >
+            <button onClick={() => {
+            }}>Save
+            </button>
+            <p><strong>Full name: </strong>
+                {createField(Input, 'fullName', 'text', 'Full name', [])}
+            </p>
+            <p><strong>Looking for a job:</strong>
+                {createField(Input, 'lookingForAJob', 'checkbox', '', [])}
+            </p>
+            <p><strong>My professional skills:</strong>
+                {createField(Textarea, 'lookingForAJobDescription', 'textarea', 'My professional skills', [])}
+            </p>
+
+            <p><strong>About me:</strong>
+                {createField(Textarea, 'aboutMe', 'textarea', 'About me', [])}
+
+            </p>
+            <div>
+                <p><strong>Contacts:</strong>{Object.keys(contacts).map(key => {
+                    return (
+                        <Contact contactTitle={key} contactValue={contacts[key]}/>
+                    )
+                })}</p>
+            </div>
+        </form>
+    )
+}
+
+const ProfileDataFormReduxForm = reduxForm({ form: "edit-profile", enableReinitialize: true, destroyOnUnmount: false })(ProfileDataForm);
+
+export default ProfileDataFormReduxForm
