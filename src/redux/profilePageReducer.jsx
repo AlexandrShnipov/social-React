@@ -58,8 +58,6 @@ const profilePageReducer = (state = initialState, action) => {
   }
 }
 
-export default profilePageReducer;
-
 export const addPost = (addPostText) => ({
   type: ADD_POST,
   addPostText
@@ -105,12 +103,17 @@ export const savePhoto = (file) => async (dispatch) => {
   const data = await profileAPI.savePhoto(file)
   if (data.resultCode === 0) {
     dispatch(savePhotoSuccess(data.data.photos));
+   }
+}
+
+export const saveProfile = (profile) => async (dispatch, getState) => {
+  const userId = getState().auth.userId
+    const data = await profileAPI.saveProfile(profile)
+  console.log(data)
+  if (data.resultCode === 0) {
+    dispatch(getUserProfile(userId));
   }
 }
 
-export const saveProfile = (profile) => async (dispatch) => {
-  const data = await profileAPI.saveProfile(profile)
-  if (data.resultCode === 0) {
-    //dispatch(savePhotoSuccess(data.data.photos));
-  }
-}
+
+export default profilePageReducer;
