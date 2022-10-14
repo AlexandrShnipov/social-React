@@ -49,3 +49,9 @@ label:hover {
     opacity: .9;
 }
 
+.formSummaryError {
+    border: red 1px solid;
+    padding: .4rem;
+    color: salmon;
+}
+

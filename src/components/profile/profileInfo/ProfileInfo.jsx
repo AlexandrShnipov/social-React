@@ -8,6 +8,11 @@ import ProfileDataForm from "./profileDataForm/ProfileDataForm";
 const ProfileInfo = (props) => {
 
     let [editMode, setEditMode] = useState(false);
+
+    const goToEditMode = () => {
+        setEditMode(true)
+    }
+
     if (!props.profile) {
         return <Preloader/>
     }
@@ -21,9 +26,19 @@ const ProfileInfo = (props) => {
     let {photos} = props.profile
 
     const onSubmit = (formData) => {
+        debugger
         props.saveProfile(formData)
-        setEditMode(false)
+            .then(() => {
+                setEditMode(false)
+            });
     }
+
+    // const onSubmit = (formData) => {
+    //     props.saveProfile(formData)
+    //
+    //         setEditMode(false)
+    //
+    // }
 
     return (
         <>
@@ -52,8 +67,8 @@ const ProfileInfo = (props) => {
                     : <ProfileData
                         profile={props.profile}
                         isOwner={props.isOwner}
-                        goToEditMode={()=>{setEditMode(true)}}/>
-                    }
+                        goToEditMode={goToEditMode}/>
+                }
             </div>
         </>
     )
@@ -75,7 +90,7 @@ const ProfileData = (props) => {
             <div>
                 <p><strong>Contacts:</strong>{Object.keys(contacts).map(key => {
                     return (
-                        <Contact contactTitle={key} contactValue={contacts[key]}/>
+                        <Contact key={key} contactTitle={key} contactValue={contacts[key]}/>
                     )
                 })}</p>
             </div>
@@ -85,7 +100,7 @@ const ProfileData = (props) => {
 
 export const Contact = ({contactTitle, contactValue}) => {
     return (
-        <p>{contactTitle}:{contactValue}</p>
+        <p><strong>{contactTitle}:</strong> {contactValue}</p>
     )
 }
 //export default Contact;

@@ -5,7 +5,7 @@ import {Contact} from "../ProfileInfo";
 import {createField, Input, Textarea} from "../../../Common/FormsControls/FormsControls";
 
 const ProfileDataForm = (props) => {
-    let {contacts} = props.profile
+    const {contacts} = props.profile
 
     const submitProfileDataForm = (e) => {
         e.preventDefault();
@@ -20,6 +20,8 @@ const ProfileDataForm = (props) => {
             <button onClick={() => {
             }}>Save
             </button>
+            {props.error && <div className={s.formSummaryError}>
+                {props.error}</div>}
             <p><strong>Full name: </strong>
                 {createField(Input, 'fullName', 'text', 'Full name', [])}
             </p>
@@ -37,7 +39,9 @@ const ProfileDataForm = (props) => {
             <div>
                 <p><strong>Contacts:</strong>{Object.keys(contacts).map(key => {
                     return (
-                        <Contact contactTitle={key} contactValue={contacts[key]}/>
+                       <div className={s.contact} key={key}>
+                           <strong>{key}:  {createField(Input, 'contacts.'+key, 'text', key, [])}</strong>
+                       </div>
                     )
                 })}</p>
             </div>
@@ -45,6 +49,6 @@ const ProfileDataForm = (props) => {
     )
 }
 
-const ProfileDataFormReduxForm = reduxForm({ form: "edit-profile", enableReinitialize: true, destroyOnUnmount: false })(ProfileDataForm);
+const ProfileDataFormReduxForm = reduxForm({ form: 'edit-profile', enableReinitialize: true, destroyOnUnmount: false })(ProfileDataForm);
 
 export default ProfileDataFormReduxForm
