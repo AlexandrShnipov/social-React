@@ -25,19 +25,19 @@ const ProfileDataForm = (props) => {
             <p><strong>Full name: </strong>
                 {createField(Input, 'fullName', 'text', 'Full name', [])}
             </p>
-            <p><strong>Looking for a job:</strong>
+            <p><strong>Looking for a job: </strong>
                 {createField(Input, 'lookingForAJob', 'checkbox', '', [])}
             </p>
-            <p><strong>My professional skills:</strong>
+            <p><strong>My professional skills: </strong>
                 {createField(Textarea, 'lookingForAJobDescription', 'textarea', 'My professional skills', [])}
             </p>
 
-            <p><strong>About me:</strong>
+            <p><strong>About me: </strong>
                 {createField(Textarea, 'aboutMe', 'textarea', 'About me', [])}
 
             </p>
             <div>
-                <p><strong>Contacts:</strong>{Object.keys(contacts).map(key => {
+                <p><strong>Contacts: </strong>{Object.keys(contacts).map(key => {
                     return (
                        <div className={s.contact} key={key}>
                            <strong>{key}:  {createField(Input, 'contacts.'+key, 'text', key, [])}</strong>

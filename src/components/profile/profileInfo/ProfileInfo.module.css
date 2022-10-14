@@ -55,3 +55,33 @@ label:hover {
     color: salmon;
 }
 
+strong{
+    display: inline-block;
+}
+
+.contentUserDescription p,
+.contentUserContactsTitle > strong,
+.contentUserContacts p {
+    margin-bottom: .2rem;
+}
+.contentUserContactsTitle > strong{
+ margin-top: .2rem;
+}
+
+.contentUserContact{
+    padding-left: .5rem;
+    font-style: italic;
+}
+
+.status{
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    word-break: break-word;
+}
+
+.changeStatus{
+    width: 100%;
+
+}
+

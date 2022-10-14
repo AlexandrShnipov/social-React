@@ -33,13 +33,6 @@ const ProfileInfo = (props) => {
             });
     }
 
-    // const onSubmit = (formData) => {
-    //     props.saveProfile(formData)
-    //
-    //         setEditMode(false)
-    //
-    // }
-
     return (
         <>
             <div className={s.contentImgWrap}>
@@ -60,7 +53,10 @@ const ProfileInfo = (props) => {
                             <input type={'file'} onChange={onMainPhotoSelected}/>
                         </label>
                     }
-                    <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+                    <ProfileStatusWithHooks
+                        status={props.status}
+                        updateStatus={props.updateStatus}
+                    />
                 </div>
                 {editMode
                     ? <ProfileDataForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit}/>
@@ -81,14 +77,14 @@ const ProfileData = (props) => {
     return (
         <div className={s.contentUserDescription}>
             {props.isOwner && <button onClick={props.goToEditMode}>Edit</button>}
-            <p><strong>Full name: </strong>{fullName}</p>
+            <p><strong>Full name: </strong> {fullName}</p>
             <p><strong>Looking for a job:</strong> {lookingForAJob ? 'yes' : 'no'}</p>
             {lookingForAJob &&
-                <p><strong>My professional skills:</strong>{lookingForAJobDescription}</p>
+                <p><strong>My professional skills: </strong>{lookingForAJobDescription}</p>
             }
-            <p><strong>About me:</strong>{aboutMe}</p>
-            <div>
-                <p><strong>Contacts:</strong>{Object.keys(contacts).map(key => {
+            <p><strong>About me:</strong> {aboutMe}</p>
+            <div  className={s.contentUserContacts}>
+                <p className={s.contentUserContactsTitle}><strong>Contacts:</strong>{Object.keys(contacts).map(key => {
                     return (
                         <Contact key={key} contactTitle={key} contactValue={contacts[key]}/>
                     )
@@ -100,7 +96,7 @@ const ProfileData = (props) => {
 
 export const Contact = ({contactTitle, contactValue}) => {
     return (
-        <p><strong>{contactTitle}:</strong> {contactValue}</p>
+        <p className={s.contentUserContact}><strong>{contactTitle}:</strong> {contactValue}</p>
     )
 }
 //export default Contact;
