@@ -28,7 +28,7 @@ input[type=file] {
     font-size: 1px;
 }
 
-label {
+.labelForSetPhoto {
     position: absolute;
     right: 3px;
     top: 3px;

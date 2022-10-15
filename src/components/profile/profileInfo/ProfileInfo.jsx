@@ -26,7 +26,6 @@ const ProfileInfo = (props) => {
     let {photos} = props.profile
 
     const onSubmit = (formData) => {
-        debugger
         props.saveProfile(formData)
             .then(() => {
                 setEditMode(false)
@@ -48,7 +47,7 @@ const ProfileInfo = (props) => {
                              : userDefaultPhoto}
                          alt="user photo"/>
                     {props.isOwner &&
-                        <label>
+                        <label className={s.labelForSetPhoto}>
                             &#128247;
                             <input type={'file'} onChange={onMainPhotoSelected}/>
                         </label>
@@ -83,7 +82,7 @@ const ProfileData = (props) => {
                 <p><strong>My professional skills: </strong>{lookingForAJobDescription}</p>
             }
             <p><strong>About me:</strong> {aboutMe}</p>
-            <div  className={s.contentUserContacts}>
+            <div className={s.contentUserContacts}>
                 <p className={s.contentUserContactsTitle}><strong>Contacts:</strong>{Object.keys(contacts).map(key => {
                     return (
                         <Contact key={key} contactTitle={key} contactValue={contacts[key]}/>

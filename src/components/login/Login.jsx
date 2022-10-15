@@ -9,55 +9,65 @@ import {Navigate} from "react-router-dom";
 import {login} from "../../redux/authReducer";
 
 const LoginForm = (props) => {
-  const submitLogin = (e) => {
-    e.preventDefault();
-    props.handleSubmit();
-  }
+    const submitLogin = (e) => {
+        e.preventDefault();
+        props.handleSubmit();
+    }
 
-  return (
-    <form onSubmit={submitLogin}>
-      {createField(
-        Input, 'email', 'email', 'Enter your email', [required])
-      }
-      {createField(
-        Input, 'password', 'password', 'Enter your password', [required])
-      }
+    return (
+        <form onSubmit={submitLogin}>
+            {createField(
+                Input, 'email', 'email', 'Enter your email', [required])
+            }
+            {createField(
+                Input, 'password', 'password', 'Enter your password', [required])
+            }
 
-      <label>
-        {createField('input', 'rememberMe', 'checkbox', null, [], 'remember me')}
-      </label>
-      {props.error && <div className={s.formSummaryError}>
-        {props.error}</div>}
-      <button type={"submit"}>login</button>
-    </form>
-  )
+            <label className={s.labelForRememberMe}>
+                {createField( Input,'rememberMe', 'checkbox', '', [], ['remember me'], 'remember me')}
+            </label>
+
+            {props.captchaUrl &&
+                <img src={props.captchaUrl} alt={'captcha'}/>
+            }
+            {props.captchaUrl &&
+                createField(
+                    Input, 'captcha', 'text', 'Symbols from image', [required])
+            }
+
+            {props.error && <div className={s.formSummaryError}>
+                {props.error}</div>}
+            <button type={"submit"}>login</button>
+        </form>
+    )
 }
 
 const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 
 const Login = (props) => {
 
-  const onSubmit = (formData) => {
-    console.log(formData)
-    props.login(formData.email, formData.password, formData.rememberMe)
-  }
+    const onSubmit = (formData) => {
+        console.log(formData)
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
+    }
 
-  if (props.isAuth) {
+    if (props.isAuth) {
+        return (
+            <Navigate to={'/profile'}/>
+        )
+    }
+
     return (
-      <Navigate to={'/profile'}/>
+        <ContainerPage>
+            <h2>Login</h2>
+            <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
+        </ContainerPage>
     )
-  }
-
-  return (
-    <ContainerPage>
-      <h2>Login</h2>
-      <LoginReduxForm onSubmit={onSubmit}/>
-    </ContainerPage>
-  )
 }
 
 const mapStateToPops = (state) => ({
-  isAuth: state.auth.isAuth
+    captchaUrl: state.auth.captchaUrl,
+    isAuth: state.auth.isAuth
 })
 
 export default connect(mapStateToPops, {login})(Login);

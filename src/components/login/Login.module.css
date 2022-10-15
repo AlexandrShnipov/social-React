@@ -9,3 +9,8 @@ form{
     padding: .4rem;
     color: salmon;
 }
+
+.labelForRememberMe{
+    cursor: pointer;
+    display: flex;
+}
