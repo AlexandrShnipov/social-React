@@ -40,12 +40,14 @@ const ProfileInfo = (props) => {
                      alt="img"/>
             </div>
             <div className={s.contentUser}>
-                <div className={s.contentUserImgWrap}>
-                    <img className={s.contentUserImg}
-                         src={photos.large !== null
-                             ? photos.large
-                             : userDefaultPhoto}
-                         alt="user photo"/>
+                <div className={s.statusBlock}>
+                    <div className={s.statusBlockImgWrap}>
+                        <img className={s.statusBlockImg}
+                             src={photos.large !== null
+                                 ? photos.large
+                                 : userDefaultPhoto}
+                             alt="user photo"/>
+                    </div>
                     {props.isOwner &&
                         <label className={s.labelForSetPhoto}>
                             &#128247;
@@ -75,11 +77,15 @@ const ProfileData = (props) => {
     let {fullName, lookingForAJob, lookingForAJobDescription, aboutMe, contacts} = props.profile
     return (
         <div className={s.contentUserDescription}>
-            {props.isOwner && <button onClick={props.goToEditMode}>Edit</button>}
+            {props.isOwner &&
+                <button
+                    onClick={props.goToEditMode}>
+                    Edit
+                </button>}
             <p><strong>Full name: </strong> {fullName}</p>
             <p><strong>Looking for a job:</strong> {lookingForAJob ? 'yes' : 'no'}</p>
             {lookingForAJob &&
-                <p><strong>My professional skills: </strong>{lookingForAJobDescription}</p>
+                <p><strong>My professional skills: </strong> {lookingForAJobDescription}</p>
             }
             <p><strong>About me:</strong> {aboutMe}</p>
             <div className={s.contentUserContacts}>
@@ -95,7 +101,7 @@ const ProfileData = (props) => {
 
 export const Contact = ({contactTitle, contactValue}) => {
     return (
-        <p className={s.contentUserContact}><strong>{contactTitle}:</strong> {contactValue}</p>
+        <p className={s.contentUserContact}><strong>{contactTitle}:&nbsp; </strong> {contactValue}</p>
     )
 }
 //export default Contact;

@@ -1,6 +1,6 @@
 .dialogs {
     font-size: 1.5rem;
-    padding: 1rem;
+    padding: 1rem 10% 1rem 1rem;
 }
 
 .dialogsTitle {
@@ -11,6 +11,7 @@
 .dialogsContent {
     display: grid;
     grid-template-columns: 2fr 10fr;
+    margin-bottom: 2rem;
 }
 
 .dialogsItems{
@@ -29,11 +30,12 @@
 .newMessages{
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 1rem;
 }
 
 .newMessagesText{
     width: 100%;
+    height: 5rem;
 }
 
 .newMessagesButton{

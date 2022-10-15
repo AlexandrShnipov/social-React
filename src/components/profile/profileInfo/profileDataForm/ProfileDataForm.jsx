@@ -17,16 +17,16 @@ const ProfileDataForm = (props) => {
             className={s.contentUserDescription}
             onSubmit={submitProfileDataForm}
         >
-            <button onClick={() => {
-            }}>Save
-            </button>
+            <button onClick={() => {}}>Save</button>
             {props.error && <div className={s.formSummaryError}>
                 {props.error}</div>}
             <p><strong>Full name: </strong>
                 {createField(Input, 'fullName', 'text', 'Full name', [])}
             </p>
-            <p><strong>Looking for a job: </strong>
+            <p><label>
+                <strong>Looking for a job: </strong>
                 {createField(Input, 'lookingForAJob', 'checkbox', '', [])}
+            </label>
             </p>
             <p><strong>My professional skills: </strong>
                 {createField(Textarea, 'lookingForAJobDescription', 'textarea', 'My professional skills', [])}
@@ -37,11 +37,11 @@ const ProfileDataForm = (props) => {
 
             </p>
             <div>
-                <p><strong>Contacts: </strong>{Object.keys(contacts).map(key => {
+                <p className={s.contentUserContactsTitle}><strong>Contacts: </strong>{Object.keys(contacts).map(key => {
                     return (
-                       <div className={s.contact} key={key}>
-                           <strong>{key}:  {createField(Input, 'contacts.'+key, 'text', key, [])}</strong>
-                       </div>
+                        <div className={s.contact} key={key}>
+                            <strong>{key}: {createField(Input, 'contacts.' + key, 'text', key, [])}</strong>
+                        </div>
                     )
                 })}</p>
             </div>
@@ -49,6 +49,10 @@ const ProfileDataForm = (props) => {
     )
 }
 
-const ProfileDataFormReduxForm = reduxForm({ form: 'edit-profile', enableReinitialize: true, destroyOnUnmount: false })(ProfileDataForm);
+const ProfileDataFormReduxForm = reduxForm({
+    form: 'edit-profile',
+    enableReinitialize: true,
+    destroyOnUnmount: false
+})(ProfileDataForm);
 
 export default ProfileDataFormReduxForm

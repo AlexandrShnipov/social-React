@@ -15,7 +15,7 @@ const LoginForm = (props) => {
     }
 
     return (
-        <form onSubmit={submitLogin}>
+        <form onSubmit={submitLogin} className={s.loginForm}>
             {createField(
                 Input, 'email', 'email', 'Enter your email', [required])
             }

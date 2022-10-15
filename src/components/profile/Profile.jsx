@@ -2,7 +2,6 @@ import React from "react";
 import s from './Profile.module.css';
 import ProfileInfo from "./profileInfo/ProfileInfo";
 import MyPostsContainer from "./myPosts/MyPostsContainer";
-import {updateStatus} from "../../redux/profilePageReducer";
 
 const Profile = (props) => {
 

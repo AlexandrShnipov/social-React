@@ -9,14 +9,15 @@
     gap: 1rem;
 }
 
-.contentUserImgWrap {
+.statusBlockImgWrap {
     max-width: 10rem;
     width: 100%;
     height: 10rem;
     position: relative;
+    margin-bottom: 1rem;
 }
 
-.contentUserImg {
+.statusBlockImg {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -55,33 +56,60 @@ label:hover {
     color: salmon;
 }
 
-strong{
+strong {
     display: inline-block;
+    width: auto;
 }
 
-.contentUserDescription p,
-.contentUserContactsTitle > strong,
-.contentUserContacts p {
-    margin-bottom: .2rem;
-}
-.contentUserContactsTitle > strong{
- margin-top: .2rem;
+.contentUserDescription {
+    flex-basis: 30%;
 }
 
-.contentUserContact{
+.contentUserDescriptionButton{
+    padding: .5rem;
+    width: 5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: rgba(63, 139, 0, .41);
+    transition: all .5s;
+}
+
+.contentUserDescriptionButton:hover{
+    background-color: rgba(63, 139, 0, .2);
+}
+
+.contact strong{
+    width: 100%;
+}
+
+.contentUserDescription,
+.contentUserContactsTitle {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.contentUserDescription p:nth-child(3) label {
+    display: flex;
+    cursor: pointer;
+}
+
+.contentUserContact {
     padding-left: .5rem;
     font-style: italic;
+    display: flex;
 }
 
-.status{
+.status {
     cursor: pointer;
     display: inline-block;
     width: 100%;
     word-break: break-word;
 }
 
-.changeStatus{
+.changeStatus {
     width: 100%;
-
 }
 

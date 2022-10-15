@@ -16,10 +16,10 @@ const FormControl = ({input, meta:{touched,error}, children}) => {
 }
 
 export const Textarea = (props) => {
-  const {textarea, meta, child, ...restProps} = props;
+  const {input, meta, child, ...restProps} = props;
   return (
     <FormControl {...props}>
-      <textarea {...textarea} {...restProps} />
+      <textarea {...input} {...restProps} />
     </FormControl>
   )
 }

@@ -17,3 +17,27 @@
     align-items: center;
     width: 100%;
 }
+
+.loginBlock{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: bold;
+}
+
+.setLoginLink{
+    padding: .5rem 1rem;
+    width: fit-content;
+    text-transform: uppercase;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: rgba(63, 139, 0, .41);
+    color: black;
+    font-family: Arial, sans-serif;
+    transition: all .5s;
+}
+
+.setLoginLink:hover{
+    background-color: rgba(63, 139, 0, .2);
+}
+

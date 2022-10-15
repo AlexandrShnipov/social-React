@@ -11,3 +11,9 @@
 .formControl.error span {
     color: red;
 }
+
+
+.formControl input,
+.formControl textarea {
+    padding: .2rem;
+}

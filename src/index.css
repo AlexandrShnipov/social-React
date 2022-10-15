@@ -20,3 +20,19 @@ button,
 input{
     cursor: pointer;
 }
+
+button{
+  padding: .5rem 1rem;
+  width: fit-content;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: rgba(63, 139, 0, .41);
+  font-size: 1rem;
+  transition: all .5s;
+}
+
+button:hover{
+  background-color: rgba(63, 139, 0, .2);
+}
