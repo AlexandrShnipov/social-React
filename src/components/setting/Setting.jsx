@@ -4,10 +4,8 @@ import ContainerPage from "../../common/containerPage/ContainerPage";
 
 const Setting = () => {
     return (
-        <ContainerPage>
-            <h2>
-                Setting
-            </h2>
+        <ContainerPage title={'Setting'}>
+
         </ContainerPage>
     )
 }

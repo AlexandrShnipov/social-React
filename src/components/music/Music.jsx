@@ -4,10 +4,8 @@ import ContainerPage from "../../common/containerPage/ContainerPage";
 
 const Music = () => {
     return (
-        <ContainerPage>
-            <h2>
-                Music
-            </h2>
+        <ContainerPage title={'Music'}>
+
         </ContainerPage>
     )
 }

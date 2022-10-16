@@ -34,6 +34,7 @@
     background-color: rgba(63, 139, 0, .41);
     color: black;
     font-family: Arial, sans-serif;
+    font-weight: bold;
     transition: all .5s;
 }
 

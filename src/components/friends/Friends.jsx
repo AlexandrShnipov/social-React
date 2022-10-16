@@ -4,8 +4,8 @@ import ContainerPage from "../../common/containerPage/ContainerPage";
 
 const Friends = () => {
     return(
-        <ContainerPage>
-            <h2>Friends</h2>
+        <ContainerPage title={'Friends'}>
+
         </ContainerPage>
     )
 }

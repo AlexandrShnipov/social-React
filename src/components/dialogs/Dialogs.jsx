@@ -6,72 +6,75 @@ import {Navigate} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
 import {Textarea} from "../Common/FormsControls/FormsControls";
 import {maxLengthCreator, required} from "../../utils/validators/validators";
+import ContainerPage from "../../common/containerPage/ContainerPage";
 
 const Dialogs = (props) => {
 
-  let state = props.dialogsPage
+    let state = props.dialogsPage
 
-  let dialogElements = state.dialogs.map(dialog =>
-    <DialogItem
-      key={dialog.id}
-      id={dialog.id}
-      photo={dialog.photo}
-      name={dialog.name}/>);
-  let messageElements = state.messages.map(message =>
-    <Message
-      key={message.id}
-      id={message.id}
-      message={message.message}/>);
+    let dialogElements = state.dialogs.map(dialog =>
+        <DialogItem
+            key={dialog.id}
+            id={dialog.id}
+            photo={dialog.photo}
+            name={dialog.name}/>);
+    let messageElements = state.messages.map(message =>
+        <Message
+            key={message.id}
+            id={message.id}
+            message={message.message}/>);
 
-  const addMessageText = state.addMessageText;
+    const addMessageText = state.addMessageText;
 
-  const addNewMessage = (values) => {
-    //debugger
-    //alert(values.newMessagesText)
-    props.addMessageClick(values.newMessagesText)
-  }
+    const addNewMessage = (values) => {
+        //debugger
+        //alert(values.newMessagesText)
+        props.addMessageClick(values.newMessagesText)
+    }
 
-  if (!props.isAuth) {
-    return <Navigate to={'/login'}/>
-  }
-  ;
+    if (!props.isAuth) {
+        return <Navigate to={'/login'}/>
+    }
+    ;
 
-  return (
-    <div className={s.dialogs}>
-      <h2 className={s.dialogsTitle}>Dialogs</h2>
-      <div className={s.dialogsContent}>
-        <div className={s.dialogsItems}>
-          {dialogElements}
-        </div>
-        <div className={s.messages}>
-          <div>
-            {messageElements}
-          </div>
-        </div>
-      </div>
-      <AddMessageFormRedux onSubmit={addNewMessage}/>
-    </div>
-  )
+    return (
+        <ContainerPage title={'Messages'}>
+            <div className={s.dialogs}>
+                <div className={s.dialogsContent}>
+                    <div className={s.dialogsItems}>
+                        {dialogElements}
+                    </div>
+                    <div className={s.messages}>
+                        <div>
+                            {messageElements}
+                        </div>
+                    </div>
+                </div>
+                <AddMessageFormRedux onSubmit={addNewMessage}/>
+            </div>
+        </ContainerPage>
+
+    )
 }
 
 const AddMessageForm = (props) => {
 
-  const maxLength100 = maxLengthCreator(100)
+    const maxLength100 = maxLengthCreator(100)
 
-  return (
-    <form className={s.newMessages} onSubmit={props.handleSubmit}>
-      <Field component={Textarea}
-             className={s.newMessagesText}
-             name={'newMessagesText'}
-             placeholder={'Enter your message'}
-             validate={[required, maxLength100]}/>
-      <button className={s.newMessagesButton}>Send message</button>
-    </form>
-  )
+    return (
+        <form className={s.newMessages} onSubmit={props.handleSubmit}>
+            <Field component={Textarea}
+                   className={s.newMessagesText}
+                   name={'newMessagesText'}
+                   placeholder={'Enter your message'}
+                   validate={[required, maxLength100]}/>
+            <button className={s.newMessagesButton}>Send message</button>
+        </form>
+    )
 }
 
 const AddMessageFormRedux = reduxForm({
-  form: 'dialogAddMessageForm'
+    form: 'dialogAddMessageForm'
 })(AddMessageForm)
 
 export default Dialogs;

@@ -58,8 +58,7 @@ const Login = (props) => {
     }
 
     return (
-        <ContainerPage>
-            <h2>Login</h2>
+        <ContainerPage title={'Login'}>
             <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
         </ContainerPage>
     )

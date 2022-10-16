@@ -8,8 +8,7 @@ const Users = (props) => {
   let {currentPage, pageSize, totalItemsCount, users, onPageChanged, followingInProgress, follow, unfollow} = props;
 
   return (
-    <ContainerPage>
-      <h2>Users</h2>
+    <ContainerPage title={'Users'}>
       <Pagination currentPage={currentPage}
                   pageSize={pageSize}
                   totalItemsCount={totalItemsCount}

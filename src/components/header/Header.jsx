@@ -1,15 +1,16 @@
 import React from "react";
 import s from './Header.module.css';
 import {NavLink} from "react-router-dom";
+import logo from '../../images/logo.png'
 
 const Header = (props) => {
   return (
     <header className={s.header}>
       <div className={s.headerWrap}>
-        <a className={s.headerLogoLink} href="">
+        <NavLink className={s.headerLogoLink} to={'/profile'}>
           <img className={s.headerLogoImg}
-               src="https://i.pinimg.com/originals/33/b8/69/33b869f90619e81763dbf1fccc896d8d.jpg" alt="logo"/>
-        </a>
+               src={logo} alt="logo"/>
+        </NavLink>
 
         <div>
           {props.isAuth
@@ -20,7 +21,6 @@ const Header = (props) => {
             : <NavLink className={s.setLoginLink} to={'/login'}>login</NavLink>}
         </div>
       </div>
-
     </header>
   )
 }
