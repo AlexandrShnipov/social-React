@@ -1,6 +1,6 @@
 import './App.css';
 import './Reset.css';
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, Navigate} from "react-router-dom";
 import NavBarContainer from "./components/navBar/NavBarContainer";
 import UsersContainer from "./components/users/UsersContainer";
 import {withRouter} from "./components/profile/ProfileContainer";
@@ -39,6 +39,7 @@ class App extends Component {
         <main className={'contentMain'}>
           <React.Suspense fallback={<Preloader/>}>
             <Routes>
+              <Route path="/" element={<Navigate to="/profile" />} />
               <Route path='/profile' element={<ProfileContainer/>}/>
               <Route path='/profile/:userId'
                      element={<ProfileContainer/>}
@@ -52,6 +53,7 @@ class App extends Component {
               <Route path='/setting/*' element={<Setting/>}/>
               <Route path='/friends/*' element={<Friends/>}/>
               <Route path='/login/*' element={<Login/>}/>
+              <Route path='*' element={<div>404 NOT FOUND</div>}/>
             </Routes>
           </React.Suspense>
 
@@ -61,11 +63,11 @@ class App extends Component {
   }
 }
 
-const mapStateTuProps = (state) => ({
+const mapStateToProps = (state) => ({
   initialized: state.app.initialized
 })
 
 export default compose(
   withRouter,
-  connect(mapStateTuProps, {initializeApp}))(App);
+  connect(mapStateToProps, {initializeApp}))(App);
 

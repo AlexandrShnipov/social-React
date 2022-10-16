@@ -21,13 +21,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
     );
 
 
-//rerenderEntireTree();
-// store.subscribe(() => {
-//         let state = store.getState();
-//         rerenderEntireTree(state);
-//     }
-//     , console.log('in store something has changed'));
-
 
 
 
