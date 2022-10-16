@@ -5,7 +5,6 @@
     display: grid;
     grid-template-rows: 3.75rem 1fr;
     grid-template-columns: 2fr 9fr;
-    gap: .6rem;
     grid-template-areas:
           'header header'
           'nav content'
