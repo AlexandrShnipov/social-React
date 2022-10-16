@@ -9,7 +9,7 @@ const Friends = (props) => {
 
     return (
         <li className={s.navListItem}>
-            <NavLink className={({isActive}) => (isActive ? s.active : '')} to={'/friends'}>Friends</NavLink>
+            <NavLink className={({isActive}) => (isActive ? s.active : s.linkToFriends)} to={'/friends'}>Friends</NavLink>
             <ul className={s.navListItemFriends}>
                 {friendsElements}
             </ul>

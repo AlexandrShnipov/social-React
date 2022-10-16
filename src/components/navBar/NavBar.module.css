@@ -5,6 +5,8 @@
 }
 
 .nav a{
+    display: inline-block;
+    width: 100%;
     color: inherit;
     transition: color .5s;
 }
