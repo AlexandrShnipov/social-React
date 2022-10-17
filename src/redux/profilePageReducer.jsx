@@ -95,10 +95,15 @@ export const getStatus = (userId) => async (dispatch) => {
 }
 
 export const updateStatus = (status) => async (dispatch) => {
-    const data = await profileAPI.updateStatus(status)
-    if (data.resultCode === 0) {
-        dispatch(setStatus(status));
+    try {
+        const data = await profileAPI.updateStatus(status)
+        if (data.resultCode === 0) {
+            dispatch(setStatus(status));
+        }
+    } catch (error) {
+        alert(error.message)
     }
+
 }
 
 export const savePhoto = (file) => async (dispatch) => {
@@ -114,8 +119,7 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
     console.log(data)
     if (data.resultCode === 0) {
         dispatch(getUserProfile(userId));
-     }
-        else {
+    } else {
         const message = data.messages.length > 0 ? data.messages[0] : 'Some error';
         //dispatch(stopSubmit('edit-profile', {'contacts':{'facebook': message}}))
         dispatch(stopSubmit('edit-profile', {_error: message}));
