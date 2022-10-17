@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/social-React.git/static/css/main.63cd0250.css",
-    "main.js": "/social-React.git/static/js/main.2c7c02da.js",
+    "main.js": "/social-React.git/static/js/main.b331c85a.js",
     "static/css/7.1a63bbba.chunk.css": "/social-React.git/static/css/7.1a63bbba.chunk.css",
     "static/js/7.aee171d4.chunk.js": "/social-React.git/static/js/7.aee171d4.chunk.js",
     "static/css/376.8de8e5d8.chunk.css": "/social-React.git/static/css/376.8de8e5d8.chunk.css",
@@ -19,7 +19,7 @@
     "static/media/logo.png": "/social-React.git/static/media/logo.f8083a0253df8e36dc2d.png",
     "index.html": "/social-React.git/index.html",
     "main.63cd0250.css.map": "/social-React.git/static/css/main.63cd0250.css.map",
-    "main.2c7c02da.js.map": "/social-React.git/static/js/main.2c7c02da.js.map",
+    "main.b331c85a.js.map": "/social-React.git/static/js/main.b331c85a.js.map",
     "7.1a63bbba.chunk.css.map": "/social-React.git/static/css/7.1a63bbba.chunk.css.map",
     "7.aee171d4.chunk.js.map": "/social-React.git/static/js/7.aee171d4.chunk.js.map",
     "376.8de8e5d8.chunk.css.map": "/social-React.git/static/css/376.8de8e5d8.chunk.css.map",
@@ -33,6 +33,6 @@
   },
   "entrypoints": [
     "static/css/main.63cd0250.css",
-    "static/js/main.2c7c02da.js"
+    "static/js/main.b331c85a.js"
   ]
 }
