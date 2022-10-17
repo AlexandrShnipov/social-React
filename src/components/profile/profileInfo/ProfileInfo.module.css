@@ -3,7 +3,8 @@
 }
 
 .contentUser {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
     padding: 1rem;
     margin-bottom: 2rem;
     gap: 1rem;

@@ -27,7 +27,7 @@ const ProfileStatusWithHooks = (props) => {
     return (
         <>
             {!editMode &&
-                <div>
+                <div className={s.statusWrap}>
                     <span className={s.status} onClick={activateEditMode}>{props.status || 'No status'}</span>
                 </div>
             }
