@@ -86,7 +86,7 @@ const ProfileData = (props) => {
             <p><strong>Full name: </strong> {fullName}</p>
             <p><strong>Looking for a job:</strong> {lookingForAJob ? 'yes' : 'no'}</p>
             {lookingForAJob &&
-                <p><strong>My professional skills: </strong> {lookingForAJobDescription}</p>
+                <p><strong>My professional skill: </strong> {lookingForAJobDescription}</p>
             }
             <p><strong>About me:</strong> {aboutMe}</p>
             <div className={s.contentUserContacts}>
