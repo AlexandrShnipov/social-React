@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/376.8de8e5d8.chunk.css","mappings":"AAAA,GAEI,cAAe,CADf,kBAEJ","sources":["components/news/News.module.css"],"sourcesContent":["h2{\r\n    margin-bottom: 2rem;\r\n    font-size: 2rem;\r\n}"],"names":[],"sourceRoot":""}

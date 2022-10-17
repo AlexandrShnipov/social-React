@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/808.910b40b1.chunk.css","mappings":"AAAA,GAEI,cAAe,CADf,kBAEJ","sources":["components/setting/Setting.module.css"],"sourcesContent":["h2{\r\n    margin-bottom: 2rem;\r\n    font-size: 2rem;\r\n}"],"names":[],"sourceRoot":""}
