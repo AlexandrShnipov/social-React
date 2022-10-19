@@ -41,8 +41,8 @@ class App extends Component {
                 <main className={'contentMain'}>
                     <React.Suspense fallback={<Preloader/>}>
                         <Routes>
-                            <Route path='/social-React/' element={<Navigate to='/profile'/>}/>
-                            <Route path='/social-React/profile' element={<ProfileContainer/>}/>
+                            <Route path='/' element={<Navigate to='/profile'/>}/>
+                            <Route path='/profile' element={<ProfileContainer/>}/>
                             <Route path='/profile/:userId'
                                    element={<ProfileContainer/>}
                             />
