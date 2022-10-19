@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkproject_1_social=self.webpackChunkproject_1_social||[]).push([[419],{419:function(e,t,n){n.r(t),n.d(t,{default:function(){return u}});n(2791);var c=n(1284),r=n(184),u=function(){return(0,r.jsx)(c.Z,{title:"Friends"})}}}]);
-//# sourceMappingURL=419.27328afd.chunk.js.map
