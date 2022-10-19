@@ -1,6 +1,5 @@
-import React from "react";
-import s from './Setting.module.css';
-import ContainerPage from "../../common/containerPage/ContainerPage";
+import React from 'react';
+import ContainerPage from '../../common/containerPage/ContainerPage';
 
 const Setting = () => {
     return (

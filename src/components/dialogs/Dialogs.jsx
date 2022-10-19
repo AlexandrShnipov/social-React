@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 import s from './Dialogs.module.css';
-import DialogItem from "./dialogItem/DialogItem";
-import Message from "./message/Message";
-import {Navigate} from "react-router-dom";
-import {Field, reduxForm} from "redux-form";
-import {Textarea} from "../Common/FormsControls/FormsControls";
-import {maxLengthCreator, required} from "../../utils/validators/validators";
-import ContainerPage from "../../common/containerPage/ContainerPage";
+import DialogItem from './dialogItem/DialogItem';
+import Message from './message/Message';
+import {Navigate} from 'react-router-dom';
+import {Field, reduxForm} from 'redux-form';
+import {Textarea} from '../Common/FormsControls/FormsControls';
+import {maxLengthCreator, required} from '../../utils/validators/validators';
+import ContainerPage from '../../common/containerPage/ContainerPage';
 
 const Dialogs = (props) => {
 

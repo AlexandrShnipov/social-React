@@ -1,15 +1,15 @@
 import './App.css';
 import './Reset.css';
-import {Route, Routes, Navigate} from "react-router-dom";
-import NavBarContainer from "./components/navBar/NavBarContainer";
-import UsersContainer from "./components/users/UsersContainer";
-import {withRouter} from "./components/profile/ProfileContainer";
-import HeaderContainer from "./components/header/HeaderContainer";
-import React, {Component} from "react";
-import {connect} from "react-redux";
-import {compose} from "redux";
-import {initializeApp} from "./redux/appReduser";
-import Preloader from "./components/Common/Preloader/Preloader";
+import {Route, Routes, Navigate} from 'react-router-dom';
+import NavBarContainer from './components/navBar/NavBarContainer';
+import UsersContainer from './components/users/UsersContainer';
+import {withRouter} from './components/profile/ProfileContainer';
+import HeaderContainer from './components/header/HeaderContainer';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {compose} from 'redux';
+import {initializeApp} from './redux/appReduser';
+import Preloader from './components/Common/Preloader/Preloader';
 
 const ProfileContainer = React.lazy(() => import('./components/profile/ProfileContainer'));
 const DialogsContainer = React.lazy(() => import('./components/dialogs/DialogsContainer'));
@@ -41,7 +41,7 @@ class App extends Component {
                 <main className={'contentMain'}>
                     <React.Suspense fallback={<Preloader/>}>
                         <Routes>
-                            <Route path='/' element={<Navigate to="/profile"/>}/>
+                            <Route path='/' element={<Navigate to='/profile'/>}/>
                             <Route path='/profile' element={<ProfileContainer/>}/>
                             <Route path='/profile/:userId'
                                    element={<ProfileContainer/>}

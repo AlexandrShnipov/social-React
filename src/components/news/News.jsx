@@ -1,6 +1,5 @@
-import React from "react";
-import s from './News.module.css';
-import ContainerPage from "../../common/containerPage/ContainerPage";
+import React from 'react';
+import ContainerPage from '../../common/containerPage/ContainerPage';
 
 const News = () => {
     return (

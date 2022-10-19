@@ -1,8 +1,7 @@
-import React from "react";
-import {Field, reduxForm} from "redux-form";
-import s from "../ProfileInfo.module.css";
-import {Contact} from "../ProfileInfo";
-import {createField, Input, Textarea} from "../../../Common/FormsControls/FormsControls";
+import React from 'react';
+import {reduxForm} from 'redux-form';
+import s from '../ProfileInfo.module.css';
+import {createField, Input, Textarea} from '../../../Common/FormsControls/FormsControls';
 
 const ProfileDataForm = (props) => {
     const {contacts} = props.profile

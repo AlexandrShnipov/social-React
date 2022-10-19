@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import s from './User.module.css'
 import userDefault from '../../assets/images/userDefault.png'
-import {NavLink} from "react-router-dom";
+import {NavLink} from 'react-router-dom';
 
 const User = ({user, followingInProgress, unfollow, follow} ) => {
 
@@ -14,7 +14,7 @@ const User = ({user, followingInProgress, unfollow, follow} ) => {
                    {user.photos.small !== null
                      ? user.photos.small
                      : userDefault
-                   } alt="user photo"/>
+                   } alt='user photo'/>
           </div>
         </NavLink>
         {user.followed

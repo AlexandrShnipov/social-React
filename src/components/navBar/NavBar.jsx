@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import s from './NavBar.module.css';
-import Friends from "./friends/Friends";
-import NavBarItem from "./navBarItem/NavBarItem";
+import Friends from './friends/Friends';
+import NavBarItem from './navBarItem/NavBarItem';
 
 const NavBar = (props) => {
     let state = props.navBar

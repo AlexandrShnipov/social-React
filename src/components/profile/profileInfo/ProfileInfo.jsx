@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useState} from 'react';
 import s from './ProfileInfo.module.css';
-import Preloader from "../../Common/Preloader/Preloader";
-import userDefaultPhoto from "../../../assets/images/userDefaultPhoto.jpg";
-import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
-import ProfileDataForm from "./profileDataForm/ProfileDataForm";
+import Preloader from '../../Common/Preloader/Preloader';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
+import ProfileDataForm from './profileDataForm/ProfileDataForm';
+import userDefaultPhoto from '../../../assets/images/userDefaultPhoto.jpg';
+import contentImg from '../../../assets/images/profileInfoContentImg.png'
 
 const ProfileInfo = (props) => {
 
@@ -36,8 +37,8 @@ const ProfileInfo = (props) => {
         <>
             <div className={s.contentImgWrap}>
                 <img className={s.contentImg}
-                     src="https://cdn.vitecimagingsolutions.com/fileadmin/Gitzo/Global/Contents/Nature___Wildlife/marquee.jpg"
-                     alt="img"/>
+                     src={contentImg}
+                     alt='img'/>
             </div>
             <div className={s.contentUser}>
                 <div className={s.statusBlock}>
@@ -46,7 +47,7 @@ const ProfileInfo = (props) => {
                              src={photos.large !== null
                                  ? photos.large
                                  : userDefaultPhoto}
-                             alt="user photo"/>
+                             alt='user photo'/>
                         {props.isOwner &&
                             <label className={s.labelForSetPhoto}>
                                 &#128247;

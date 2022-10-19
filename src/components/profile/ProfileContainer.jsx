@@ -1,10 +1,10 @@
-import React from "react";
-import Profile from "./Profile";
-import {connect} from "react-redux";
-import {Navigate, useLocation, useNavigate, useParams} from "react-router-dom";
-import {getStatus, getUserProfile, savePhoto, saveProfile, updateStatus} from "../../redux/profilePageReducer";
-import {compose} from "redux";
-import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import React from 'react';
+import Profile from './Profile';
+import {connect} from 'react-redux';
+import {useLocation, useNavigate, useParams} from 'react-router-dom';
+import {getStatus, getUserProfile, savePhoto, saveProfile, updateStatus} from '../../redux/profilePageReducer';
+import {compose} from 'redux';
+import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 
 
 class ProfileContainer extends React.Component {

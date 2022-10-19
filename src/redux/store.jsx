@@ -1,6 +1,6 @@
-import dialogPageReducer from "./dialogPageReducer";
-import navBarReducer from "./navBarReducer";
-import profilePageReducer from "./profilePageReducer";
+import dialogPageReducer from './dialogPageReducer';
+import navBarReducer from './navBarReducer';
+import profilePageReducer from './profilePageReducer';
 
 let store = {
     _state: {

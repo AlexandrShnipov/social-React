@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import s from './ContainerPage.module.css';
 
 const ContainerPage = (props) => {

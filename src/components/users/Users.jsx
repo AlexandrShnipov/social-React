@@ -1,7 +1,7 @@
-import React from "react";
-import ContainerPage from "../../common/containerPage/ContainerPage";
-import Pagination from "../Common/Pagination/Pagination";
-import User from "./User";
+import React from 'react';
+import ContainerPage from '../../common/containerPage/ContainerPage';
+import Pagination from '../Common/Pagination/Pagination';
+import User from './User';
 
 const Users = (props) => {
 

@@ -1,12 +1,12 @@
-import React from "react";
-import ContainerPage from "../../common/containerPage/ContainerPage";
+import React from 'react';
+import ContainerPage from '../../common/containerPage/ContainerPage';
 import s from './Login.module.css';
-import {Field, reduxForm} from "redux-form";
-import {createField, Input} from "../Common/FormsControls/FormsControls";
-import {required} from "../../utils/validators/validators";
-import {connect} from "react-redux";
-import {Navigate} from "react-router-dom";
-import {login} from "../../redux/authReducer";
+import {reduxForm} from 'redux-form';
+import {createField, Input} from '../Common/FormsControls/FormsControls';
+import {required} from '../../utils/validators/validators';
+import {connect} from 'react-redux';
+import {Navigate} from 'react-router-dom';
+import {login} from '../../redux/authReducer';
 
 const LoginForm = (props) => {
     const submitLogin = (e) => {
@@ -37,7 +37,7 @@ const LoginForm = (props) => {
 
             {props.error && <div className={s.formSummaryError}>
                 {props.error}</div>}
-            <button type={"submit"}>login</button>
+            <button type={'submit'}>login</button>
         </form>
     )
 }

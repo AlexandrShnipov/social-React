@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import s from './Header.module.css';
-import {NavLink} from "react-router-dom";
-import logo from '../../images/logo.png'
+import {NavLink} from 'react-router-dom';
+import logo from '../../assets/images/logo.png'
 
 const Header = (props) => {
   return (
@@ -9,7 +9,7 @@ const Header = (props) => {
       <div className={s.headerWrap}>
         <NavLink className={s.headerLogoLink} to={'/profile'}>
           <img className={s.headerLogoImg}
-               src={logo} alt="logo"/>
+               src={logo} alt='logo'/>
         </NavLink>
 
         <div>
