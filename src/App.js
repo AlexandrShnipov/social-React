@@ -42,7 +42,7 @@ class App extends Component {
                     <React.Suspense fallback={<Preloader/>}>
                         <Routes>
                             <Route path='/' element={<Navigate to='/profile'/>}/>
-                            <Route path='/profile' element={<ProfileContainer/>}/>
+                            <Route exact path='/profile' element={<ProfileContainer/>}/>
                             <Route path='/profile/:userId'
                                    element={<ProfileContainer/>}
                             />
