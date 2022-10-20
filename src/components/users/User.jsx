@@ -11,7 +11,7 @@ const User = ({user, followingInProgress, unfollow, follow} ) => {
         <NavLink to={`/profile/${user.id}`}>
           <div className={s.usersItemLeftImg}>
             <img src=
-                   {user.photos.small !== null
+                   {user.photos.small
                      ? user.photos.small
                      : userDefault
                    } alt='user photo'/>

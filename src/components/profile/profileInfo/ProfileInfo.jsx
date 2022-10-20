@@ -4,18 +4,20 @@ import Preloader from '../../Common/Preloader/Preloader';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import ProfileDataForm from './profileDataForm/ProfileDataForm';
 import userDefaultPhoto from '../../../assets/images/userDefaultPhoto.jpg';
-import contentImg from '../../../assets/images/profileInfoContentImg.png'
+import Skeleton from "../../../common/SkeletonForImg/Skeleton";
+import backgroundImg from '../../../assets/images/profileInfoContentImg.png'
 
 const ProfileInfo = (props) => {
 
     let [editMode, setEditMode] = useState(false);
 
+    const [isLoading, setLoading] = useState(true);
+    const handleOnLoad = () => {
+        setLoading(false);
+    };
+
     const goToEditMode = () => {
         setEditMode(true)
-    }
-
-    if (!props.profile) {
-        return <Preloader/>
     }
 
     const onMainPhotoSelected = (e) => {
@@ -23,8 +25,6 @@ const ProfileInfo = (props) => {
             props.savePhoto(e.target.files[0])
         }
     }
-
-    let {photos} = props.profile
 
     const onSubmit = (formData) => {
         props.saveProfile(formData)
@@ -36,38 +36,45 @@ const ProfileInfo = (props) => {
     return (
         <>
             <div className={s.contentImgWrap}>
+                {isLoading && <Skeleton/>}
                 <img className={s.contentImg}
-                     src={contentImg}
+                     onLoad={handleOnLoad}
+                     src={backgroundImg}
                      alt='img'/>
             </div>
             <div className={s.contentUser}>
-                <div className={s.statusBlock}>
-                    <div className={s.statusBlockImgWrap}>
-                        <img className={s.statusBlockImg}
-                             src={photos.large !== null
-                                 ? photos.large
-                                 : userDefaultPhoto}
-                             alt='user photo'/>
-                        {props.isOwner &&
-                            <label className={s.labelForSetPhoto}>
-                                &#128247;
-                                <input type={'file'} onChange={onMainPhotoSelected}/>
-                            </label>
-                        }
-                    </div>
+                {!props.profile
+                    ? <Preloader/>
+                    : <>
+                        <div className={s.statusBlock}>
+                            <div className={s.statusBlockImgWrap}>
+                                <img className={s.statusBlockImg}
+                                     src={props.profile.photos.large !== null
+                                         ? props.profile.photos.large
+                                         : userDefaultPhoto}
+                                     alt='user photo'/>
+                                {props.isOwner &&
+                                    <label className={s.labelForSetPhoto}>
+                                        &#128247;
+                                        <input type={'file'} onChange={onMainPhotoSelected}/>
+                                    </label>
+                                }
+                            </div>
 
-                    <ProfileStatusWithHooks
-                        status={props.status}
-                        updateStatus={props.updateStatus}
-                    />
-                </div>
-                {editMode
-                    ? <ProfileDataForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit}/>
-                    : <ProfileData
-                        profile={props.profile}
-                        isOwner={props.isOwner}
-                        goToEditMode={goToEditMode}/>
-                }
+                            <ProfileStatusWithHooks
+                                status={props.status}
+                                updateStatus={props.updateStatus}
+                            />
+                        </div>
+                        {editMode
+                            ?
+                            <ProfileDataForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit}/>
+                            : <ProfileData
+                                profile={props.profile}
+                                isOwner={props.isOwner}
+                                goToEditMode={goToEditMode}/>
+                        }
+                    </>}
             </div>
         </>
     )
