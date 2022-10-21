@@ -57,13 +57,8 @@ class App extends Component {
                         <Routes>
                             <Route path={routes.MAIN} element={<Navigate to='/profile'/>}/>
                             <Route path={routes.PROFILE} element={<ProfileContainer/>}/>
-                            <Route  path={routes.USER}
-
-                                   element={<ProfileContainer/>}
-                            />
-                            <Route path={routes.DIALOGS}
-                                   element={<DialogsContainer/>}
-                            />
+                            <Route path={routes.USER} element={<ProfileContainer/>}/>
+                            <Route path={routes.DIALOGS}element={<DialogsContainer/>}/>
                             <Route path={routes.NEWS} element={<News/>}/>
                             <Route path={routes.MUSIC} element={<Music/>}/>
                             <Route path={routes.USERS} element={<UsersContainer/>}/>
