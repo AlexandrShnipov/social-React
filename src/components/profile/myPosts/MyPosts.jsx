@@ -11,6 +11,7 @@ const MyPosts = (props) => {
   const onAddPost = (value) => {
     //debugger
     props.addPost(value.addPostText);
+    value.addPostText = ''
   }
 
   return (
