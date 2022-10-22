@@ -24,12 +24,10 @@ const Dialogs = (props) => {
             id={message.id}
             message={message.message}/>);
 
-    const addMessageText = state.addMessageText;
-
-    const addNewMessage = (values) => {
+     const addNewMessage = (values) => {
         //debugger
-        //alert(values.newMessagesText)
         props.addMessageClick(values.newMessagesText)
+        values.newMessagesText = ''
     }
 
     if (!props.isAuth) {

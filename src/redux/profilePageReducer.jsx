@@ -26,8 +26,8 @@ const profilePageReducer = (state = initialState, action) => {
             };
             return {
                 ...state,
+                posts: [...state.posts, newPost],
                 addPostText: '',
-                posts: [...state.posts, newPost]
             };
 
         case SET_USER_PROFILE:
@@ -61,7 +61,7 @@ const profilePageReducer = (state = initialState, action) => {
 
 export const addPost = (addPostText) => ({
     type: ADD_POST,
-    addPostText
+    addPostText,
 });
 
 export const setStatus = (status) => ({
@@ -116,7 +116,6 @@ export const savePhoto = (file) => async (dispatch) => {
 export const saveProfile = (profile) => async (dispatch, getState) => {
     const userId = getState().auth.userId
     const data = await profileAPI.saveProfile(profile)
-    console.log(data)
     if (data.resultCode === 0) {
         dispatch(getUserProfile(userId));
     } else {
